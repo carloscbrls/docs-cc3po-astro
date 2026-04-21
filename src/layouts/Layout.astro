@@ -4,53 +4,97 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "CC3PO Knowledge Base - Technical guides, SOPs, and best practices" } = Astro.props;
+const { 
+  title, 
+  description = "CC3PO Knowledge Base - Technical guides, SOPs, and best practices for AI automation, WordPress, and business optimization" 
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | CC3PO Docs`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="CC3PO Docs" />
+    <meta property="og:image" content="https://cc3po.com/wp-content/uploads/2025/04/Color-logo-with-background-scaled.png" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | CC3PO Docs`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://cc3po.com/wp-content/uploads/2025/04/Color-logo-with-background-scaled.png" />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      headline: title,
+      description: description,
+      publisher: {
+        "@type": "Organization",
+        name: "CC3PO",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://cc3po.com/wp-content/uploads/2025/04/Color-logo-with-background-scaled.png"
+        }
+      }
+    })} />
+    
     <title>{title} | CC3PO Docs</title>
   </head>
   <body>
     <div class="docs-layout">
-      <aside class="sidebar">
+      <aside class="sidebar" role="navigation" aria-label="Documentation navigation">
         <a href="/" class="sidebar-logo">
-          <img src="http://cc3po.com/wp-content/uploads/2025/04/Color-logo-with-background-scaled.png" alt="CC3PO" style="height: 35px; width: auto; margin-right: 0.5rem;" />
+          <img src="https://cc3po.com/wp-content/uploads/2025/04/Color-logo-with-background-scaled.png" alt="CC3PO" style="height: 35px; width: auto; margin-right: 0.5rem;" />
           Docs
         </a>
         
-        <nav class="sidebar-nav">
+        <nav class="sidebar-nav" aria-label="Main navigation">
           <div class="nav-section">
-            <div class="nav-section-title">Guides</div>
-            <a href="/guides/wordpress/wordpress-setup" class="nav-link">WordPress Setup</a>
-            <a href="/guides/wordpress/wordpress-security" class="nav-link">WordPress Security</a>
-            <a href="/guides/wordpress/wordpress-optimization" class="nav-link">WordPress Optimization</a>
+            <div class="nav-section-title">Getting Started</div>
+            <a href="/" class="nav-link">Welcome</a>
+          </div>
+          
+          <div class="nav-section">
+            <div class="nav-section-title">WordPress Guides</div>
+            <a href="/guides/wordpress/wordpress-setup" class="nav-link">Setup Guide</a>
+            <a href="/guides/wordpress/wordpress-security" class="nav-link">Security</a>
+            <a href="/guides/wordpress/wordpress-optimization" class="nav-link">Optimization</a>
           </div>
           
           <div class="nav-section">
             <div class="nav-section-title">AI & Automation</div>
-            <a href="/guides/ai/ai-automation-workflows" class="nav-link">Automation Workflows</a>
+            <a href="/guides/ai/ai-automation-workflows" class="nav-link">Workflows</a>
             <a href="/guides/ai/chatbot-setup" class="nav-link">Chatbot Setup</a>
           </div>
           
           <div class="nav-section">
             <div class="nav-section-title">Resources</div>
-            <a href="https://insights.cc3po.com" class="nav-link" target="_blank">Blog ↗</a>
-            <a href="https://offers.cc3po.com" class="nav-link" target="_blank">Services ↗</a>
-            <a href="https://cc3po.com" class="nav-link" target="_blank">Main Site ↗</a>
+            <a href="https://insights.cc3po.com" class="nav-link" target="_blank" rel="noopener">Blog ↗</a>
+            <a href="https://offers.cc3po.com" class="nav-link" target="_blank" rel="noopener">Services ↗</a>
+            <a href="https://cc3po.com" class="nav-link" target="_blank" rel="noopener">Main Site ↗</a>
           </div>
         </nav>
       </aside>
       
-      <main class="main-content">
+      <main class="main-content" role="main">
         <slot />
       </main>
     </div>
@@ -58,5 +102,226 @@ const { title, description = "CC3PO Knowledge Base - Technical guides, SOPs, and
 </html>
 
 <style is:global>
-  @import '../styles/global.css';
+  :root {
+    --bg-primary: #0a0a0b;
+    --bg-secondary: #111113;
+    --bg-tertiary: #18181b;
+    --bg-card: #1a1a1d;
+    --border-color: #27272a;
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --accent: #6b35ff;
+    --accent-hover: #7c44ff;
+    --accent-glow: rgba(107, 53, 255, 0.3);
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-inter);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-inter);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .docs-layout {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    width: 280px;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav-section-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.625rem 0.875rem;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    margin-bottom: 0.25rem;
+  }
+
+  .nav-link:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 3rem 4rem;
+    max-width: 900px;
+  }
+
+  .main-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .main-content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+    color: var(--text-primary);
+  }
+
+  .main-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .main-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  .main-content code {
+    background: var(--bg-tertiary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 0.9em;
+  }
+
+  .main-content pre {
+    background: var(--bg-tertiary);
+    padding: 1.25rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--border-color);
+  }
+
+  .main-content pre code {
+    background: none;
+    padding: 0;
+  }
+
+  .main-content ul, .main-content ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .main-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, rgba(107, 53, 255, 0.1), rgba(0, 210, 255, 0.1));
+    border: 1px solid rgba(107, 53, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .cta-box h3 {
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-box p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--accent-glow);
+  }
+
+  @media (max-width: 900px) {
+    .docs-layout {
+      flex-direction: column;
+    }
+
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .main-content {
+      padding: 2rem;
+    }
+
+    .main-content h1 {
+      font-size: 2rem;
+    }
+  }
 </style>

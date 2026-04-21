@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Knowledge Base">
+  <div class="hero">
+    <h1>CC3PO Knowledge Base</h1>
+    <p>Technical guides, SOPs, and best practices for WordPress, AI automation, security, and more.</p>
+    
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search documentation..." />
+    </div>
+  </div>
+  
+  <div class="categories-grid">
+    <a href="/guides/wordpress/wordpress-setup" class="category-card">
+      <div class="category-icon">📝</div>
+      <h3>WordPress Guides</h3>
+      <p>Setup, security, optimization, and best practices for WordPress sites.</p>
+    </a>
+    
+    <a href="/guides/ai/ai-automation-workflows" class="category-card">
+      <div class="category-icon">🤖</div>
+      <h3>AI & Automation</h3>
+      <p>Workflows, chatbots, and AI-powered automation systems.</p>
+    </a>
+    
+    <a href="/guides/security" class="category-card">
+      <div class="category-icon">🔒</div>
+      <h3>Security Best Practices</h3>
+      <p>Website security, compliance, and protection strategies.</p>
+    </a>
+    
+    <a href="/guides/tutorials" class="category-card">
+      <div class="category-icon">📚</div>
+      <h3>Tutorials</h3>
+      <p>Step-by-step guides and how-to articles for common tasks.</p>
+    </a>
+  </div>
+  
+  <footer class="footer">
+    <p>Part of the <a href="https://cc3po.com">CC3PO ecosystem</a> · <a href="https://insights.cc3po.com">Blog</a> · <a href="https://offers.cc3po.com">Services</a></p>
+  </footer>
+</Layout>

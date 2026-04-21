@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "CC3PO Knowledge Base - Technical guides, SOPs, and best practices" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>{title} | CC3PO Docs</title>
+  </head>
+  <body>
+    <div class="docs-layout">
+      <aside class="sidebar">
+        <a href="/" class="sidebar-logo">
+          <span>CC3PO</span> Docs
+        </a>
+        
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-section-title">Guides</div>
+            <a href="/guides/wordpress/wordpress-setup" class="nav-link">WordPress Setup</a>
+            <a href="/guides/wordpress/wordpress-security" class="nav-link">WordPress Security</a>
+            <a href="/guides/wordpress/wordpress-optimization" class="nav-link">WordPress Optimization</a>
+          </div>
+          
+          <div class="nav-section">
+            <div class="nav-section-title">AI & Automation</div>
+            <a href="/guides/ai/ai-automation-workflows" class="nav-link">Automation Workflows</a>
+            <a href="/guides/ai/chatbot-setup" class="nav-link">Chatbot Setup</a>
+          </div>
+          
+          <div class="nav-section">
+            <div class="nav-section-title">Resources</div>
+            <a href="https://insights.cc3po.com" class="nav-link" target="_blank">Blog ↗</a>
+            <a href="https://offers.cc3po.com" class="nav-link" target="_blank">Services ↗</a>
+            <a href="https://cc3po.com" class="nav-link" target="_blank">Main Site ↗</a>
+          </div>
+        </nav>
+      </aside>
+      
+      <main class="main-content">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

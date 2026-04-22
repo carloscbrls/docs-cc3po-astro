@@ -60,13 +60,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body>
     <div class="docs-layout">
-      <aside class="sidebar" role="navigation" aria-label="Documentation navigation">
+      <aside class="sidebar" id="sidebar" role="navigation" aria-label="Documentation navigation">
         <a href="/" class="sidebar-logo">
           <img src="https://cc3po.com/wp-content/uploads/2025/04/Color-logo-with-background-scaled.png" alt="CC3PO" style="height: 35px; width: auto; margin-right: 0.5rem;" />
           Docs
         </a>
         
-        <nav class="sidebar-nav" aria-label="Main navigation">
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <nav class="sidebar-nav" aria-label="Main navigation" id="sidebar-nav">
           <div class="nav-section">
             <div class="nav-section-title">Getting Started</div>
             <a href="/" class="nav-link">Welcome</a>
@@ -98,6 +104,39 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <slot />
       </main>
     </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18" />
+      </svg>
+    </button>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <script>
+      const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebar-toggle');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const overlay = document.getElementById('sidebar-overlay');
+
+      function openSidebar() {
+        sidebar?.classList.add('active');
+        overlay?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSidebar() {
+        sidebar?.classList.remove('active');
+        overlay?.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      mobileMenuBtn?.addEventListener('click', openSidebar);
+      sidebarToggle?.addEventListener('click', closeSidebar);
+      overlay?.addEventListener('click', closeSidebar);
+    </script>
   </body>
 </html>
 
@@ -304,6 +343,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
 
   @media (max-width: 900px) {
+    .docs-header {
+      display: flex;
+    }
+
     .docs-layout {
       flex-direction: column;
     }
@@ -311,17 +354,84 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .sidebar {
       width: 100%;
       height: auto;
-      position: relative;
-      border-right: none;
-      border-bottom: 1px solid var(--border-color);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      padding: 1rem 1.5rem 2rem;
+    }
+
+    .sidebar.active {
+      transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+      display: flex;
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .sidebar-overlay.active {
+      display: block;
     }
 
     .main-content {
       padding: 2rem;
+      margin-top: 70px;
     }
 
     .main-content h1 {
       font-size: 2rem;
+    }
+  }
+
+  /* Sidebar Toggle */
+  .sidebar-toggle {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+
+  /* Mobile Menu Button in Header */
+  .mobile-menu-btn {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 998;
+    background: var(--accent);
+    border: none;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 900px) {
+    .mobile-menu-btn {
+      display: flex;
     }
   }
 </style>

@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Disclaimer | CC3PO Docs";
+const description = "Disclaimer for CC3PO documentation and knowledge base.";
+---
+
+<Layout title={title}>
+  <div class="legal-page">
+    <h1>Disclaimer</h1>
+    <p class="last-updated">Last Updated: April 23, 2026</p>
+    
+    <div class="legal-content">
+      <div class="warning-box">
+        <strong>⚠️ IMPORTANT: PLEASE READ THIS DISCLAIMER CAREFULLY</strong>
+        <p>The documentation and guidance provided by CC3PO is for informational purposes only. By using this documentation, you acknowledge and agree to the following disclaimers.</p>
+      </div>
+      
+      <section>
+        <h2>1. General Disclaimer</h2>
+        <p>The information in this documentation is provided "as is" without warranty of any kind. CC3PO makes no representations or warranties about:</p>
+        <ul>
+          <li>Accuracy, completeness, or suitability of the information</li>
+          <li>Results that may be obtained from using the information</li>
+          <li>Freedom from errors, viruses, or other harmful components</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>2. Technical Guidance Disclaimer</h2>
+        <p>Technical guides and tutorials are provided for educational purposes. Results may vary based on:</p>
+        <ul>
+          <li>Your specific environment and configuration</li>
+          <li>Version differences in software or tools</li>
+          <li>Third-party dependencies and integrations</li>
+          <li>Your level of technical expertise</li>
+        </ul>
+        <p><strong>Always back up your data before implementing technical changes.</strong></p>
+      </section>
+      
+      <section>
+        <h2>3. No Professional Advice</h2>
+        <p>This documentation does not constitute:</p>
+        <ul>
+          <li>Legal advice</li>
+          <li>Financial advice</li>
+          <li>Medical advice</li>
+          <li>Professional certification</li>
+        </ul>
+        <p>For professional matters, consult qualified professionals in those fields.</p>
+      </section>
+      
+      <section>
+        <h2>4. Third-Party References</h2>
+        <p>Documentation may reference third-party tools, services, or websites. We are not responsible for:</p>
+        <ul>
+          <li>Availability or reliability of third-party services</li>
+          <li>Changes to third-party APIs or functionality</li>
+          <li>Third-party privacy practices or policies</li>
+          <li>Damages from using third-party services</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>5. Code Examples Disclaimer</h2>
+        <p>Code examples are provided "as is" without warranty. You are responsible for:</p>
+        <ul>
+          <li>Testing code in your own environment</li>
+          <li>Modifying code for your specific needs</li>
+          <li>Ensuring security and compliance</li>
+          <li>Obtaining necessary licenses for commercial use</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>6. Security Disclaimer</h2>
+        <p>Security-related documentation is for educational purposes only:</p>
+        <ul>
+          <li>Security recommendations may not cover all threats</li>
+          <li>No security measure is 100% effective</li>
+          <li>You must conduct your own security assessment</li>
+          <li>We are not liable for security breaches</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>7. HIPAA Compliance Disclaimer</h2>
+        <div class="hipaa-box">
+          <strong>Healthcare Clients:</strong> HIPAA compliance guidance is informational only. We do not provide legal advice. Compliance depends on your implementation. Always consult a qualified HIPAA compliance professional.
+        </div>
+      </section>
+      
+      <section>
+        <h2>8. Limitation of Liability</h2>
+        <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</strong></p>
+        <ul>
+          <li>CC3PO shall not be liable for any direct, indirect, incidental, special, or consequential damages</li>
+          <li>We are not liable for data loss, system failures, or security breaches</li>
+          <li>You use this documentation at your own risk</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>9. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless CC3PO from any claims, damages, or expenses arising from:</p>
+        <ul>
+          <li>Your use of the documentation</li>
+          <li>Your implementation of technical guidance</li>
+          <li>Violation of these terms</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>10. Changes to This Disclaimer</h2>
+        <p>We may update this Disclaimer from time to time. Changes will be posted on this page with an updated "Last Updated" date.</p>
+      </section>
+      
+      <section>
+        <h2>11. Contact Information</h2>
+        <p>For questions about this Disclaimer:</p>
+        <ul>
+          <li>Email: <a href="mailto:legal@cc3po.com">legal@cc3po.com</a></li>
+          <li>Website: <a href="https://cc3po.com">cc3po.com</a></li>
+        </ul>
+      </section>
+    </div>
+    
+    <div class="back-link">
+      <a href="/">← Back to Knowledge Base</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+  
+  h1 {
+    color: #6b35ff;
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  
+  .last-updated {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+  
+  h2 {
+    color: #1a1a2e;
+    font-size: 20px;
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  
+  p, li {
+    color: #4a4a5a;
+    line-height: 1.8;
+  }
+  
+  ul {
+    margin-left: 24px;
+    margin-top: 8px;
+  }
+  
+  li {
+    margin-bottom: 8px;
+  }
+  
+  a {
+    color: #6b35ff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .warning-box {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 20px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+  }
+  
+  .warning-box strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #856404;
+  }
+  
+  .hipaa-box {
+    background: #e8f4fd;
+    border-left: 4px solid #2196f3;
+    padding: 16px;
+    border-radius: 8px;
+    color: #0d47a1;
+  }
+  
+  .back-link {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(107, 53, 255, 0.1);
+  }
+</style>

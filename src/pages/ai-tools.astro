@@ -1,362 +1,254 @@
 ---
-layout: ../../layouts/Layout.astro
-title: AI Tools for Small Business 2026 | CC3PO
-description: The best AI tools for small businesses in 2026. Automate marketing, customer service, content creation, and more.
+import Layout from '../layouts/Layout.astro';
+
+const title = "AI Tools for Small Business 2026 | CC3PO";
+const description = "The best AI tools for small businesses in 2026. Automate marketing, customer service, content creation, and more.";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Tools for Small Business 2026 | CC3PO</title>
-    <meta name="description" content={Astro.props.description} />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --bg: #0a0a0b;
-        --card: #111113;
-        --input: #18181b;
-        --border: #27272a;
-        --text: #fafafa;
-        --muted: #a1a1aa;
-        --accent: #6b35ff;
-        --accent-hover: #7c44ff;
-      }
+<Layout title={title} description={description}>
+  <div class="container">
+    <header>
+      <h1>AI Tools for Small Business 2026</h1>
+      <p class="subtitle">Automate marketing, customer service, content creation, and more</p>
+    </header>
+
+    <section class="intro">
+      <p>AI tools can help small businesses automate repetitive tasks, improve customer service, and create content faster. Here's a curated list of the best tools available in 2026.</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="category-icon">📝</span> Content Creation</h2>
       
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      
-      body {
-        font-family: 'Inter', sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-      }
-      
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem 1rem;
-      }
-      
-      header {
-        text-align: center;
-        padding: 3rem 0 2rem;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 2rem;
-      }
-      
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        line-height: 1.2;
-      }
-      
-      .subtitle {
-        color: var(--muted);
-        font-size: 1.1rem;
-      }
-      
-      .category {
-        margin-bottom: 2rem;
-      }
-      
-      .category h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      
-      .category-icon {
-        font-size: 1.5rem;
-      }
-      
-      .tools-grid {
-        display: grid;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-      }
-      
-      .tool-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 1.25rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: all 0.2s ease;
-      }
-      
-      .tool-card:hover {
-        border-color: var(--accent);
-      }
-      
-      .tool-info h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.25rem;
-      }
-      
-      .tool-info p {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-      
-      .tool-price {
-        background: var(--accent);
-        color: white;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        white-space: nowrap;
-        margin-left: 1rem;
-      }
-      
-      .cta-button {
-        display: inline-block;
-        text-align: center;
-        background: var(--accent);
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: all 0.2s ease;
-      }
-      
-      .cta-button:hover {
-        background: var(--accent-hover);
-        transform: translateY(-2px);
-      }
-      
-      .disclaimer {
-        text-align: center;
-        color: var(--muted);
-        font-size: 0.8rem;
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--border);
-      }
-      
-      .newsletter {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 2rem;
-        margin-top: 3rem;
-        text-align: center;
-      }
-      
-      .newsletter h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-      
-      .newsletter p {
-        color: var(--muted);
-        margin-bottom: 1.5rem;
-      }
-      
-      .email-form {
-        display: flex;
-        gap: 0.5rem;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-      
-      .email-form input {
-        flex: 1;
-        padding: 0.75rem 1rem;
-        background: var(--input);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        color: var(--text);
-        font-size: 1rem;
-      }
-      
-      .email-form button {
-        background: var(--accent);
-        color: white;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-      }
-      
-      .note {
-        background: rgba(107, 53, 255, 0.1);
-        border: 1px solid rgba(107, 53, 255, 0.3);
-        border-radius: 12px;
-        padding: 1rem 1.5rem;
-        margin-bottom: 2rem;
-      }
-      
-      .note strong { color: var(--accent); }
-      
-      @media (max-width: 600px) {
-        h1 { font-size: 1.75rem; }
-        .tool-card { flex-direction: column; align-items: flex-start; }
-        .tool-price { margin-left: 0; margin-top: 0.5rem; }
-        .email-form { flex-direction: column; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>AI Tools for Small Business</h1>
-        <p class="subtitle">Automate marketing, content, customer service, and more</p>
-      </header>
-      
-      <div class="note">
-        <strong>💡 Pro Tip:</strong> I've been working with AI since my days at Tesla Autopilot. These tools actually move the needle for small businesses.
+      <div class="tools-grid">
+        <a href="https://chat.openai.com" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>ChatGPT / Claude</h3>
+            <p>AI assistants for writing, brainstorming, and content creation.</p>
+          </div>
+          <span class="tool-price">Free / $20/mo</span>
+        </a>
+        
+        <a href="https://jasper.ai" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>Jasper</h3>
+            <p>Specialized AI for marketing content, blog posts, and social media.</p>
+          </div>
+          <span class="tool-price">From $39/mo</span>
+        </a>
+        
+        <a href="https://copy.ai" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>Copy.ai</h3>
+            <p>AI-powered copywriting for ads, emails, and social posts.</p>
+          </div>
+          <span class="tool-price">Free / $49/mo</span>
+        </a>
       </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="category-icon">🎨</span> Visual Content</h2>
       
-      <!-- Content Creation -->
-      <div class="category">
-        <h2><span class="category-icon">✍️</span> Content Creation</h2>
-        <div class="tools-grid">
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Claude (Anthropic)</h3>
-              <p>Best for writing, brainstorming, and complex analysis</p>
-            </div>
-            <span class="tool-price">Free tier available</span>
+      <div class="tools-grid">
+        <a href="https://www.midjourney.com" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>Midjourney</h3>
+            <p>AI image generation for marketing materials and social media.</p>
           </div>
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>ChatGPT (OpenAI)</h3>
-              <p>Versatile assistant for content, coding, and Q&A</p>
-            </div>
-            <span class="tool-price">$20/mo</span>
+          <span class="tool-price">From $10/mo</span>
+        </a>
+        
+        <a href="https://canva.com" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>Canva + AI</h3>
+            <p>Design platform with AI-powered features for quick graphics.</p>
           </div>
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Jasper</h3>
-              <p>AI copywriting specifically for marketing teams</p>
-            </div>
-            <span class="tool-price">$49/mo</span>
-          </div>
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Midjourney</h3>
-              <p>AI image generation for social media and websites</p>
-            </div>
-            <span class="tool-price">$10/mo</span>
-          </div>
-        </div>
-        <a href="#" class="cta-button">Compare All →</a>
+          <span class="tool-price">Free / $12.99/mo</span>
+        </a>
       </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="category-icon">💬</span> Customer Service</h2>
       
-      <!-- Marketing Automation -->
-      <div class="category">
-        <h2><span class="category-icon">📧</span> Marketing Automation</h2>
-        <div class="tools-grid">
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>ConvertKit</h3>
-              <p>Email marketing built for creators and small businesses</p>
-            </div>
-            <span class="tool-price">Free - $29/mo</span>
+      <div class="tools-grid">
+        <a href="https://www.intercom.com" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>Intercom</h3>
+            <p>Customer messaging with AI-powered chatbots and automation.</p>
           </div>
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>MailerLite</h3>
-              <p>Simple, affordable email automation</p>
-            </div>
-            <span class="tool-price">Free - $15/mo</span>
+          <span class="tool-price">From $74/mo</span>
+        </a>
+        
+        <a href="https://crisp.chat" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>Crisp</h3>
+            <p>Live chat with AI assistant and shared inbox for teams.</p>
           </div>
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Zapier</h3>
-              <p>Connect apps and automate workflows (5,000+ apps)</p>
-            </div>
-            <span class="tool-price">Free - $59/mo</span>
-          </div>
-        </div>
-        <a href="#" class="cta-button">Compare All →</a>
+          <span class="tool-price">Free / $25/mo</span>
+        </a>
       </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="category-icon">📊</span> Business Operations</h2>
       
-      <!-- Customer Service -->
-      <div class="category">
-        <h2><span class="category-icon">💬</span> Customer Service</h2>
-        <div class="tools-grid">
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Tidio</h3>
-              <p>Live chat + chatbots for small business websites</p>
-            </div>
-            <span class="tool-price">Free - $49/mo</span>
+      <div class="tools-grid">
+        <a href="https://zapier.com" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>Zapier + AI</h3>
+            <p>Automate workflows between apps with AI-powered actions.</p>
           </div>
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Intercom</h3>
-              <p>Complete customer messaging platform</p>
-            </div>
-            <span class="tool-price">$39/mo</span>
+          <span class="tool-price">Free / $19.99/mo</span>
+        </a>
+        
+        <a href="https://notion.so" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>Notion AI</h3>
+            <p>Project management with built-in AI for writing and summarizing.</p>
           </div>
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Fin (Intercom)</h3>
-              <p>AI customer support bot with real answers</p>
-            </div>
-            <span class="tool-price">$195/mo</span>
-          </div>
-        </div>
-        <a href="#" class="cta-button">Compare All →</a>
+          <span class="tool-price">Free / $8/mo</span>
+        </a>
       </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="category-icon">🔍</span> SEO & Marketing</h2>
       
-      <!-- Operations -->
-      <div class="category">
-        <h2><span class="category-icon">⚙️</span> Operations & Admin</h2>
-        <div class="tools-grid">
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Notion</h3>
-              <p>All-in-one workspace for notes, docs, and projects</p>
-            </div>
-            <span class="tool-price">Free - $10/mo</span>
+      <div class="tools-grid">
+        <a href="https://surferseo.com" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>Surfer SEO</h3>
+            <p>AI-powered content optimization for better search rankings.</p>
           </div>
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Make (Integromat)</h3>
-              <p>Powerful workflow automation like Zapier</p>
-            </div>
-            <span class="tool-price">Free - $49/mo</span>
+          <span class="tool-price">From $89/mo</span>
+        </a>
+        
+        <a href="https://www.semrush.com" class="tool-card" target="_blank" rel="noopener">
+          <div class="tool-info">
+            <h3>SEMrush + AI</h3>
+            <p>Complete SEO toolkit with AI content and keyword features.</p>
           </div>
-          <div class="tool-card">
-            <div class="tool-info">
-              <h3>Calendly</h3>
-              <p>AI scheduling - eliminate back-and-forth emails</p>
-            </div>
-            <span class="tool-price">Free - $20/mo</span>
-          </div>
-        </div>
-        <a href="#" class="cta-button">Compare All →</a>
+          <span class="tool-price">From $129.95/mo</span>
+        </a>
       </div>
-      
-      <!-- Newsletter -->
-      <div class="newsletter">
-        <h3>Get AI Tools Updates</h3>
-        <p>New tools, tips, and reviews delivered weekly.</p>
-        <form class="email-form" action="#" method="POST">
-          <input type="email" placeholder="Enter your email" required />
-          <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
-        </form>
-      </div>
-      
-      <div class="disclaimer">
-        <p>⚠️ This page may contain affiliate links. I only recommend tools I've personally tested.</p>
-        <p style="margin-top: 0.5rem;">Last updated: April 2026</p>
-      </div>
-    </div>
-  </body>
-</html>
+    </section>
+
+    <section class="cta-section">
+      <a href="https://offers.cc3po.com/agent-system.html" class="cta-button">Need AI Implementation? Get a Custom AI Agent System →</a>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    color: #a1a1aa;
+    font-size: 1.1rem;
+  }
+  
+  .intro {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+  
+  .category {
+    margin-bottom: 2rem;
+  }
+  
+  .category h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .category-icon {
+    font-size: 1.5rem;
+  }
+  
+  .tools-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tool-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .tool-card:hover {
+    border-color: #6b35ff;
+  }
+  
+  .tool-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .tool-info p {
+    color: #a1a1aa;
+    font-size: 0.9rem;
+  }
+  
+  .tool-price {
+    background: #6b35ff;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-left: 1rem;
+  }
+  
+  .cta-section {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #6b35ff, #7c44ff);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(107, 53, 255, 0.3);
+  }
+</style>

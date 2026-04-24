@@ -19,7 +19,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="icon" type="image/svg+xml" href="https://cc3po.com/wp-content/uploads/2023/02/White-logo-no-background-scaled.png" />
+    <link rel="icon" type="image/svg+xml" href="http://cc3po.com/wp-content/uploads/2026/04/Icon.png" />
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,13 +32,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content="CC3PO Docs" />
-    <meta property="og:image" content="https://cc3po.com/wp-content/uploads/2025/04/White-logo-no-background-scaled.png" />
+    <meta property="og:image" content="http://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | CC3PO Docs`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://cc3po.com/wp-content/uploads/2025/04/White-logo-no-background-scaled.png" />
+    <meta name="twitter:image" content="http://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png" />
     
     <!-- Schema.org -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -51,7 +51,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         name: "CC3PO",
         logo: {
           "@type": "ImageObject",
-          url: "https://cc3po.com/wp-content/uploads/2025/04/White-logo-no-background-scaled.png"
+          url: "http://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png"
         }
       }
     })} />
@@ -62,7 +62,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="docs-layout">
       <aside class="sidebar" id="sidebar" role="navigation" aria-label="Documentation navigation">
         <a href="/" class="sidebar-logo">
-          <img src="https://cc3po.com/wp-content/uploads/2025/04/White-logo-no-background-scaled.png" alt="CC3PO" style="height: 35px; width: auto; margin-right: 0.5rem;" />
+          <img src="http://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png" alt="CC3PO" style="height: 35px; width: auto; margin-right: 0.5rem;" />
           Docs
         </a>
         
@@ -96,6 +96,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <a href="https://insights.cc3po.com" class="nav-link" target="_blank" rel="noopener">Blog ↗</a>
             <a href="https://offers.cc3po.com" class="nav-link" target="_blank" rel="noopener">Services ↗</a>
             <a href="https://cc3po.com" class="nav-link" target="_blank" rel="noopener">Main Site ↗</a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Web Excellence</div>
+            <a href="/guides/web-excellence/handbook" class="nav-link">Handbook 📖</a>
           </div>
         </nav>
       </aside>

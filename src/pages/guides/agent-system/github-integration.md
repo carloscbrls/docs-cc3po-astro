@@ -1,91 +1,127 @@
-# GitHub Tools for AI Agents
+---
+title: GitHub Integration for the Village
+description: Tools, pricing, and setup guide for GitHub automation
+---
 
-## Research Summary
+# GitHub Integration for the Village
 
-### 1. GitHub Copilot Pricing
+## Why GitHub Integration Matters
 
-| Plan | Price | Features |
-|------|-------|-----------|
-| **Individual** | $10/month | Code completion, chat, IDE integration |
-| **Business** | $19/month | Team management, privacy controls, code review |
-| **Enterprise** | $39/month | Custom models, enterprise security, audit logs |
-
-**Recommendation:** Business or Enterprise for client work (privacy + security).
+GitHub is central to the village workflow:
+- Issue tracking for tasks
+- Code review for quality
+- Automation for efficiency
+- Project management for coordination
 
 ---
 
-### 2. AI Coding Assistants with GitHub Integration
+## GitHub Copilot Pricing & Features
 
-| Tool | Price | GitHub Integration | Best For |
-|------|-------|-------------------|----------|
-| **Cursor AI** | $20/mo (Pro) | ✅ Full GitHub sync | Code editing, refactoring |
-| **GitHub Copilot** | $10-39/mo | ✅ Native | Code completion, chat |
-| **CodeRabbit** | Free - $15/mo | ✅ PR reviews | Automated code review |
-| **Devin AI** | Enterprise | ✅ Issue integration | Full development agent |
+| Plan | Price | Completions | Best For |
+|------|-------|-------------|----------|
+| **Free** | $0 | 2,000/mo | Students, open-source |
+| **Pro** | $10/mo | Unlimited | Individual use |
+| **Pro+** | $39/mo | Unlimited + 1,500 premium | Power users |
+| **Business** | $19/user/mo | Unlimited + 300 premium | Teams, client work |
+| **Enterprise** | $39/user/mo | Unlimited + 1,000 premium | Large organizations |
 
----
-
-### 3. GitHub Marketplace Apps for Automation
-
-| App | Price | Use Case |
-|-----|-------|----------|
-| **Linear** | Free - $10/seat | Project management sync |
-| **Jira** | Free - $7/seat | Issue tracking |
-| **Slack** | Free | Notifications, alerts |
-| **Notion** | Free - $10/seat | Documentation sync |
-| **Dependabot** | Free | Security updates |
-| **Codecov** | Free - $50/mo | Code coverage |
+**Recommendation:** Business ($19/mo) for privacy and security with client work.
 
 ---
 
-### 4. GitHub Actions for AI Workflows
+## AI Coding Assistants Comparison
 
-| Action | Use Case | Free Tier |
-|--------|----------|-----------|
-| **AI Code Review** | Automated PR reviews | Limited |
-| **Automated Testing** | CI/CD pipelines | 2000 min/mo |
-| **Issue Labeler** | Auto-label issues | Free |
-| **PR Templates** | Standardize PRs | Free |
-| **Release Drafter** | Auto-generate releases | Free |
+| Tool | Free | Individual | Team | GitHub Integration |
+|------|------|------------|------|-------------------|
+| **Cursor AI** | Hobby | $20/mo | $40/user/mo | ✅ Full sync |
+| **CodeRabbit** | 150 files | $12-15/mo | $24-30/user/mo | ✅ PR reviews |
+| **GitHub Copilot** | Limited | $10/mo | $19-39/user/mo | ✅ Native |
+| **Devin AI** | Waitlist | TBD | Enterprise | ✅ Issues |
 
----
-
-### 5. What We Need for the Village
-
-| Need | Tool | Cost | Priority |
-|------|------|------|----------|
-| **Issue Management** | GitHub Projects | Free | High |
-| **Code Review** | CodeRabbit | $15/mo | High |
-| **PR Automation** | GitHub Actions | Free | High |
-| **AI Coding** | Cursor AI | $20/mo | Medium |
-| **Team Sync** | Linear | $10/seat | Medium |
-| **Notifications** | Slack + GitHub | Free | Low |
+**Best Value:** CodeRabbit for automated code reviews ($12-15/mo).
 
 ---
 
-### 6. Recommended Setup
+## GitHub Actions for AI Workflows
 
-**Free Tier:**
-- GitHub Projects (issues, tracking)
-- GitHub Actions (automation)
-- Slack + GitHub integration (notifications)
+| Action | Cost | Use Case |
+|--------|------|----------|
+| **Agentic Workflows** | Free (Actions minutes) | Issue triage, documentation |
+| **AI Inference** | Free (GitHub Models) | Call AI models in workflows |
+| **AI GitHub Action** | Free tier | PR analysis, code scanning |
+| **Continuous AI** | Free | SDLC automation |
 
-**Paid (High Value):**
-- **CodeRabbit Pro** — $15/mo for automated code review
-- **Cursor Pro** — $20/mo for AI coding assistant
-
-**Enterprise (If Needed):**
-- **GitHub Enterprise** — $21/seat/mo for advanced security
-- **Copilot Enterprise** — $39/mo for custom models
+**Key Capabilities:**
+- Natural language workflow definitions
+- Supports Copilot CLI, Claude Code, OpenAI Codex
+- Built-in security guardrails
+- Automate: CI failure investigation, issue triage, docs
 
 ---
 
-### 7. Integration Plan
+## Project Management Tools
+
+| Tool | GitHub Sync | Price | Best For |
+|------|-------------|-------|----------|
+| **GitHub Projects** | ✅ Native | Free | All users |
+| **Linear** | ✅ Auto-status | $10-12/user/mo | Developer speed |
+| **Jira** | ✅ Bidirectional | $7.75-15.25/user/mo | Enterprise |
+| **Zenhub** | ✅ Agile boards | $5/user/mo | GitHub-native teams |
+| **Slack** | ✅ Notifications | Free | Team communication |
+
+---
+
+## Recommended Setup for Village
+
+### Tier 1: Free (Start Here)
+
+| Tool | Cost | ROI |
+|------|------|-----|
+| GitHub Projects | $0 | Issue tracking |
+| GitHub Actions | $0 | Automation |
+| CodeRabbit Free | $0 | Basic PR reviews |
+| Linear Free | $0 | Small team PM |
+| Slack Integration | $0 | Notifications |
+
+**Monthly Cost: $0**
+
+### Tier 2: Essential Paid
+
+| Tool | Cost | Benefit |
+|------|------|---------|
+| CodeRabbit Lite | $12/mo | Full PR reviews |
+| Cursor Pro | $20/mo | Advanced AI coding |
+
+**Monthly Cost: $32**
+
+### Tier 3: Full Integration
+
+| Tool | Cost | Benefit |
+|------|------|---------|
+| GitHub Copilot Business | $19/user/mo | Team code assistance |
+| CodeRabbit Pro | $24/user/mo | Advanced PR reviews |
+| Linear Standard | $10/user/mo | Project management |
+
+**Monthly Cost: $53 for 1 user**
+
+---
+
+## Total Cost Estimates
+
+| Village Size | Recommended | Monthly Cost |
+|--------------|-------------|--------------|
+| **1-2 agents** | Copilot + CodeRabbit | ~$22-24/mo |
+| **5 agents** | Business + Linear | ~$145/mo |
+| **10+ agents** | Enterprise + full stack | ~$810/mo |
+
+---
+
+## Integration Flow
 
 ```
-GitHub Issues
+GitHub Issues (tasks)
     ↓
-GitHub Actions (automated workflows)
+GitHub Actions (automation)
     ↓
 CodeRabbit (AI code review)
     ↓
@@ -96,33 +132,58 @@ Slack (notifications to village)
 
 ---
 
-### 8. Cost Estimate
+## Setup Steps
 
-| Item | Monthly |
-|------|---------|
-| GitHub Pro | $4 |
-| CodeRabbit | $15 |
-| Cursor AI | $20 |
-| Linear (2 seats) | $20 |
-| **Total** | **$59/mo** |
+### 1. GitHub Projects (Free)
+1. Go to GitHub repo → Projects → New project
+2. Add columns: To Do, In Progress, Done
+3. Create issue templates for common tasks
+4. Link issues to projects automatically
 
-**Or use free tiers:**
-- GitHub Free (public repos)
-- CodeRabbit Free (limited)
-- GitHub Actions Free (2000 min)
-- Linear Free (small team)
+### 2. CodeRabbit (Free or $12/mo)
+1. Go to coderabbit.ai
+2. Connect GitHub account
+3. Authorize repositories
+4. PR reviews automatically start
+
+### 3. GitHub Actions (Free)
+1. Create `.github/workflows/` directory
+2. Add workflow YAML files
+3. Use AI Inference for automation
+4. Test with sample issues
+
+### 4. Linear (Free or $10/mo)
+1. Go to linear.app
+2. Connect GitHub account
+3. Sync repositories
+4. Set up auto-status on merge
+
+### 5. Slack Integration (Free)
+1. Go to Slack App Directory
+2. Add GitHub app
+3. Configure notifications
+4. Set up village channel
+
+---
+
+## Key Takeaways
+
+1. **Start free** — GitHub Projects + Actions + CodeRabbit Free = $0
+2. **Add CodeRabbit** — $12/mo for full PR reviews
+3. **Use GitHub Agentic Workflows** — Native automation
+4. **Linear for PM** — $10/mo for developer-focused tracking
+5. **Copilot Business** — $19/mo for team code assistance
 
 ---
 
 ## Next Steps
 
-1. **Set up GitHub Projects** for village task tracking
-2. **Install CodeRabbit** for PR reviews
-3. **Create GitHub Actions** for automated workflows
-4. **Integrate Linear** for project management
-5. **Connect Slack** for notifications
+1. [ ] Set up GitHub Projects for village tasks
+2. [ ] Install CodeRabbit for PR reviews
+3. [ ] Create GitHub Actions for automation
+4. [ ] Connect Linear for project management
+5. [ ] Set up Slack for notifications
 
 ---
 
-*Research completed: 2026-04-23*
-*Source: Perplexity AI, GitHub Marketplace, GitHub Features*
+[← Back to Agent System](/guides/agent-system/) | [Track Record →](/guides/agent-system/track-record)

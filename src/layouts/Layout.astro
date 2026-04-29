@@ -1,106 +1,161 @@
 ---
+import CookieBanner from '../components/CookieBanner.astro';
+
 interface Props {
   title: string;
   description?: string;
+  faqSchema?: Array<{ question: string; answer: string }>;
 }
 
 const { 
   title, 
-  description = "CC3PO Knowledge Base - Technical guides, SOPs, and best practices for AI automation, WordPress, and business optimization" 
+  description = "CC3PO Knowledge Base - Technical guides, SOPs, and best practices for AI automation, WordPress, and business optimization",
+  faqSchema
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
-    <link rel="icon" type="image/svg+xml" href="http://cc3po.com/wp-content/uploads/2026/04/Icon.png" />
-    
-    <!-- Preconnect for performance -->
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={new URL(currentPath, 'https://docs.cc3po.com')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title + ' | CC3PO Docs'} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png" />
+    <meta property="og:site_name" content="CC3PO Docs" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title + ' | CC3PO Docs'} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} | CC3PO Docs`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:site_name" content="CC3PO Docs" />
-    <meta property="og:image" content="http://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png" />
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | CC3PO Docs`} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="http://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png" />
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "TechArticle",
-      headline: title,
-      description: description,
-      publisher: {
-        "@type": "Organization",
-        name: "CC3PO",
-        logo: {
-          "@type": "ImageObject",
-          url: "http://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png"
-        }
-      }
-    })} />
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>{title} | CC3PO Docs</title>
+    {faqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqSchema.map(qa => ({
+          "@type": "Question",
+          "name": qa.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": qa.answer
+          }
+        }))
+      })} />
+    )}
   </head>
   <body>
     <div class="docs-layout">
       <aside class="sidebar" id="sidebar" role="navigation" aria-label="Documentation navigation">
         <a href="/" class="sidebar-logo">
-          <img src="http://cc3po.com/wp-content/uploads/2026/04/Color-Logo-New.png" alt="CC3PO" style="height: 35px; width: auto; margin-right: 0.5rem;" />
-          Docs
+          <img src="/images/cc3po-crypto-enhanced.png" alt="CC3PO" class="nav-logo-img nav-logo-full">
+          <img src="/images/cc3po-crypto-56px.png" alt="CC3PO" class="nav-logo-img nav-logo-icon">
+          <span>CC3PO</span>
         </a>
-        
-        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
         
         <nav class="sidebar-nav" aria-label="Main navigation" id="sidebar-nav">
           <div class="nav-section">
             <div class="nav-section-title">Getting Started</div>
-            <a href="/" class="nav-link">Welcome</a>
+            <a href="/" class:list={["nav-link", { active: currentPath === "/" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+              Welcome
+            </a>
           </div>
           
           <div class="nav-section">
             <div class="nav-section-title">WordPress Guides</div>
-            <a href="/guides/wordpress/wordpress-setup" class="nav-link">Setup Guide</a>
-            <a href="/guides/wordpress/wordpress-security" class="nav-link">Security</a>
-            <a href="/guides/wordpress/wordpress-optimization" class="nav-link">Optimization</a>
+            <a href="/guides/wordpress/wordpress-setup" class:list={["nav-link", { active: currentPath === "/guides/wordpress/wordpress-setup" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+              Setup Guide
+            </a>
+            <a href="/guides/wordpress/wordpress-security" class:list={["nav-link", { active: currentPath === "/guides/wordpress/wordpress-security" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              Security
+            </a>
+            <a href="/guides/wordpress/wordpress-optimization" class:list={["nav-link", { active: currentPath === "/guides/wordpress/wordpress-optimization" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+              Optimization
+            </a>
           </div>
           
           <div class="nav-section">
             <div class="nav-section-title">AI & Automation</div>
-            <a href="/guides/ai/ai-automation-workflows" class="nav-link">Workflows</a>
-            <a href="/guides/ai/chatbot-setup" class="nav-link">Chatbot Setup</a>
+            <a href="/guides/ai/ai-automation-workflows" class:list={["nav-link", { active: currentPath === "/guides/ai/ai-automation-workflows" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/>
+                <path d="M16 14v2a4 4 0 0 1-8 0v-2"/>
+              </svg>
+              Workflows
+            </a>
+            <a href="/guides/ai/chatbot-setup" class:list={["nav-link", { active: currentPath === "/guides/ai/chatbot-setup" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              Chatbot Setup
+            </a>
           </div>
           
           <div class="nav-section">
             <div class="nav-section-title">Resources</div>
-            <a href="https://insights.cc3po.com" class="nav-link" target="_blank" rel="noopener">Blog ↗</a>
-            <a href="https://offers.cc3po.com" class="nav-link" target="_blank" rel="noopener">Services ↗</a>
-            <a href="https://cc3po.com" class="nav-link" target="_blank" rel="noopener">Main Site ↗</a>
+            <a href="https://insights.cc3po.com" class="nav-link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+              </svg>
+              Blog ↗
+            </a>
+            <a href="https://offers.cc3po.com" class="nav-link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+              Services ↗
+            </a>
+            <a href="https://cc3po.com" class="nav-link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              Main Site ↗
+            </a>
           </div>
 
           <div class="nav-section">
-            <div class="nav-section-title">Web Excellence</div>
-            <a href="/guides/web-excellence/handbook" class="nav-link">Handbook 📖</a>
+            <div class="nav-section-title">Troubleshooting</div>
+            <a href="/troubleshooting/common-issues" class:list={["nav-link", { active: currentPath === "/troubleshooting/common-issues" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              Common Issues
+            </a>
+            <a href="/troubleshooting/quick-fixes" class:list={["nav-link", { active: currentPath === "/troubleshooting/quick-fixes" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+              Quick Fixes
+            </a>
           </div>
         </nav>
       </aside>
@@ -110,20 +165,51 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </main>
     </div>
 
+    <!-- Footer -->
+    <footer class="docs-footer">
+      <div class="docs-footer-inner">
+        <p>© {new Date().getFullYear()} CC3PO LLC. All rights reserved. AI Agents That Work Within Your Rules.</p>
+        <div class="docs-footer-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/disclaimer">Disclaimer</a>
+        </div>
+        <div class="docs-social">
+          <a href="https://linkedin.com/in/carloscabrales" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://twitter.com/cc3po_ai" target="_blank" rel="noopener" aria-label="X / Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l11.733 16h4.267l-11.733-16z"/><path d="M4 20l6.768-6.768m2.46-2.46L20 4"/></svg>
+          </a>
+          <a href="https://instagram.com/cc3po.ai" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://facebook.com/cc3po.ai" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <CookieBanner />
+
     <!-- Mobile Menu Button -->
     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M3 12h18M3 6h18M3 18h18" />
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
       </svg>
     </button>
 
     <!-- Sidebar Overlay -->
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
+    <style is:global>
+      @import '../styles/global.css';
+    </style>
+
     <script>
-      const sidebar = document.getElementById('sidebar');
-      const sidebarToggle = document.getElementById('sidebar-toggle');
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const sidebar = document.getElementById('sidebar');
       const overlay = document.getElementById('sidebar-overlay');
 
       function openSidebar() {
@@ -139,304 +225,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       mobileMenuBtn?.addEventListener('click', openSidebar);
-      sidebarToggle?.addEventListener('click', closeSidebar);
       overlay?.addEventListener('click', closeSidebar);
+      
+      // Close on link click
+      document.querySelectorAll('.sidebar a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 900) {
+            closeSidebar();
+          }
+        });
+      });
+
+      // Keyboard close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeSidebar();
+      });
     </script>
   </body>
 </html>
-
-<style is:global>
-  :root {
-    --bg-primary: #0a0a0b;
-    --bg-secondary: #111113;
-    --bg-tertiary: #18181b;
-    --bg-card: #1a1a1d;
-    --border-color: #27272a;
-    --text-primary: #fafafa;
-    --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
-    --accent: #6b35ff;
-    --accent-hover: #7c44ff;
-    --accent-glow: rgba(107, 53, 255, 0.3);
-    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    font-family: var(--font-inter);
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: var(--font-inter);
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    min-height: 100vh;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .docs-layout {
-    display: flex;
-    min-height: 100vh;
-  }
-
-  .sidebar {
-    width: 280px;
-    background: var(--bg-secondary);
-    border-right: 1px solid var(--border-color);
-    padding: 1.5rem;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-  }
-
-  .sidebar-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-  }
-
-  .sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .nav-section-title {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
-    margin-bottom: 0.75rem;
-  }
-
-  .nav-link {
-    display: block;
-    padding: 0.625rem 0.875rem;
-    color: var(--text-secondary);
-    border-radius: 8px;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-    margin-bottom: 0.25rem;
-  }
-
-  .nav-link:hover {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
-  }
-
-  .main-content {
-    flex: 1;
-    padding: 3rem 4rem;
-    max-width: 900px;
-  }
-
-  .main-content h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--text-primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .main-content h2 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin: 2rem 0 1rem;
-    color: var(--text-primary);
-  }
-
-  .main-content h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 1.5rem 0 0.75rem;
-  }
-
-  .main-content p {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-    line-height: 1.8;
-  }
-
-  .main-content code {
-    background: var(--bg-tertiary);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-family: 'SF Mono', Monaco, monospace;
-    font-size: 0.9em;
-  }
-
-  .main-content pre {
-    background: var(--bg-tertiary);
-    padding: 1.25rem;
-    border-radius: 12px;
-    overflow-x: auto;
-    margin: 1.5rem 0;
-    border: 1px solid var(--border-color);
-  }
-
-  .main-content pre code {
-    background: none;
-    padding: 0;
-  }
-
-  .main-content ul, .main-content ol {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-    color: var(--text-secondary);
-  }
-
-  .main-content li {
-    margin-bottom: 0.5rem;
-  }
-
-  .cta-box {
-    background: linear-gradient(135deg, rgba(107, 53, 255, 0.1), rgba(0, 210, 255, 0.1));
-    border: 1px solid rgba(107, 53, 255, 0.2);
-    border-radius: 16px;
-    padding: 2rem;
-    margin: 2rem 0;
-    text-align: center;
-  }
-
-  .cta-box h3 {
-    margin-bottom: 0.75rem;
-  }
-
-  .cta-box p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
-    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-    color: white;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: all 0.2s ease;
-  }
-
-  .cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px var(--accent-glow);
-  }
-
-  @media (max-width: 900px) {
-    .docs-header {
-      display: flex;
-    }
-
-    .docs-layout {
-      flex-direction: column;
-    }
-
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-      padding: 1rem 1.5rem 2rem;
-    }
-
-    .sidebar.active {
-      transform: translateX(0);
-    }
-
-    .sidebar-toggle {
-      display: flex;
-    }
-
-    .sidebar-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-    }
-
-    .sidebar-overlay.active {
-      display: block;
-    }
-
-    .main-content {
-      padding: 2rem;
-      margin-top: 70px;
-    }
-
-    .main-content h1 {
-      font-size: 2rem;
-    }
-  }
-
-  /* Sidebar Toggle */
-  .sidebar-toggle {
-    display: none;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    color: var(--text-primary);
-    cursor: pointer;
-    padding: 0.5rem;
-  }
-
-  .sidebar-overlay {
-    display: none;
-  }
-
-  /* Mobile Menu Button in Header */
-  .mobile-menu-btn {
-    display: none;
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 998;
-    background: var(--accent);
-    border: none;
-    color: white;
-    padding: 0.75rem;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-
-  @media (max-width: 900px) {
-    .mobile-menu-btn {
-      display: flex;
-    }
-  }
-</style>

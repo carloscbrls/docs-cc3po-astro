@@ -3,6 +3,63 @@ title: HIPAA Compliance for Client Websites
 description: Complete guide for CC3PO clients on HIPAA compliance, what's included in your care plan, and your responsibilities.
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I access my HIPAA-compliant forms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your forms are managed through JotForm Healthcare. Contact us for access credentials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use my Gmail for patient communication?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Standard email is NOT HIPAA-compliant. Use your patient portal or secure forms for all patient communication."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I need to send a file to a patient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use your patient portal's secure file sharing, or contact us to set up a secure upload system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I report a potential breach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Email legal@cc3po.com immediately with what happened, when it happened, who was affected, and any evidence you have."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often do I need to train staff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HIPAA requires annual training. We provide materials; you deliver the training and document it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I get audited?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contact us immediately. We'll help you prepare documentation and respond to the audit."
+      }
+    }
+  ]
+}
+</script>
+
 # HIPAA Compliance Guide for Clients
 
 **Your website is HIPAA-compliant. Here's what that means and what you need to know.**

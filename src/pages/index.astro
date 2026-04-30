@@ -4,47 +4,153 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Knowledge Base">
   <div class="hero">
-    <h1>CC3PO Knowledge Base</h1>
-    <p>Technical guides, SOPs, and best practices for WordPress, AI automation, security, and more.</p>
+    <div class="hero-badge">📚 Knowledge Base</div>
+    <h1>Find answers, fix fast.</h1>
+    <p>15+ years of experience in plain language. Search below or pick a topic to get started.</p>
     
     <div class="search-container">
-      <input type="text" class="search-input" placeholder="Search documentation..." />
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" class="search-input" placeholder="Search for a solution..." id="search-input" />
+      <kbd class="search-kbd">⌘K</kbd>
     </div>
   </div>
   
-  <div class="categories-grid">
-    <a href="/guides/wordpress/wordpress-setup" class="category-card">
-      <div class="category-icon">📝</div>
-      <h3>WordPress Guides</h3>
-      <p>Setup, security, optimization, and best practices for WordPress sites.</p>
+  <div class="section-header">
+    <span class="section-label">🔥 Most Needed</span>
+  </div>
+  <div class="cards-grid urgent">
+    <a href="/troubleshooting/common-issues" class="card card-urgent">
+      <div class="card-icon urgent">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h3>Common Issues & Fixes</h3>
+        <p>Site down? Email going to spam? Can't log in? Here's what to do — in plain English, no jargon.</p>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14m-7-7 7 7-7 7"/>
+      </svg>
     </a>
     
-    <a href="/guides/ai/ai-automation-workflows" class="category-card">
-      <div class="category-icon">🤖</div>
-      <h3>AI & Automation</h3>
-      <p>Workflows, chatbots, and AI-powered automation systems.</p>
+    <a href="/troubleshooting/quick-fixes" class="card card-urgent">
+      <div class="card-icon urgent">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h3>Quick Fixes</h3>
+        <p>Copy-paste solutions for the problems we see every day. Most take under 5 minutes.</p>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14m-7-7 7 7-7 7"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="section-header">
+    <span class="section-label">📖 Guides</span>
+  </div>
+  <div class="cards-grid">
+    <a href="/guides/wordpress/wordpress-setup" class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M3 9h18M9 21V9"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h3>WordPress Guides</h3>
+        <p>Setup, security, optimization, and best practices for your WordPress site.</p>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14m-7-7 7 7-7 7"/>
+      </svg>
     </a>
     
-    <a href="/guides/security" class="category-card">
-      <div class="category-icon">🔒</div>
-      <h3>Security Best Practices</h3>
-      <p>Website security, compliance, and protection strategies.</p>
+    <a href="/guides/ai/ai-automation-workflows" class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/>
+          <path d="M16 14v2a4 4 0 0 1-8 0v-2M12 14v4M8 18v2M16 18v2M8 22h8"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h3>AI & Automation</h3>
+        <p>How your AI assistant works, workflows, chatbot setup, and getting the most from automation.</p>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14m-7-7 7 7-7 7"/>
+      </svg>
     </a>
     
-    <a href="/guides/tutorials" class="category-card">
-      <div class="category-icon">📚</div>
-      <h3>Tutorials</h3>
-      <p>Step-by-step guides and how-to articles for common tasks.</p>
+    <a href="/guides/security" class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h3>Security Best Practices</h3>
+        <p>Keeping your website safe — SSL, spam protection, backups, and compliance.</p>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14m-7-7 7 7-7 7"/>
+      </svg>
+    </a>
+    
+    <a href="/guides/tutorials" class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2.5V7H20M4 6.5A2.5 2.5 0 0 1 6.5 4H20v16"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h3>Tutorials</h3>
+        <p>Step-by-step walkthroughs for common tasks — from DNS settings to email configuration.</p>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14m-7-7 7 7-7 7"/>
+      </svg>
     </a>
   </div>
   
   <footer class="footer">
-    <p>Part of the <a href="https://cc3po.com">CC3PO ecosystem</a> · <a href="https://insights.cc3po.com">Blog</a> · <a href="https://offers.cc3po.com">Services</a></p>
-    <div class="cta-inline">
-      <a href="https://offers.cc3po.com" class="cta-link">Need help? Get expert support →</a>
+    <div class="footer-links">
+      <a href="https://cc3po.com">CC3PO Ecosystem</a>
+      <span class="footer-divider">·</span>
+      <a href="https://insights.cc3po.com">Blog</a>
+      <span class="footer-divider">·</span>
+      <a href="https://offers.cc3po.com">Services</a>
     </div>
-    <p style="margin-top: 12px; font-size: 12px;">
-      <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="/disclaimer">Disclaimer</a>
-    </p>
+    <a href="https://offers.cc3po.com" class="cta-link">Need help? Get expert support →</a>
+    <div class="footer-legal">
+      <a href="/terms">Terms</a>
+      <span class="footer-divider">·</span>
+      <a href="/privacy">Privacy</a>
+      <span class="footer-divider">·</span>
+      <a href="/disclaimer">Disclaimer</a>
+    </div>
   </footer>
+
+<script>
+  // Search functionality
+  const searchInput = document.getElementById('search-input');
+  searchInput?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      const query = (e.target as HTMLInputElement).value;
+      if (query.trim()) {
+        window.location.href = `https://www.google.com/search?q=site:docs.cc3po.com+${encodeURIComponent(query)}`;
+      }
+    }
+  });
+</script>
 </Layout>

@@ -216,3 +216,7 @@ Real problems we see often, explained in plain language. No tech jargon — just
 ---
 
 > **Don't see your issue here?** [Contact us](https://offers.cc3po.com/get-started/) — we've seen it all and we're happy to help. Most issues get resolved same day.
+
+---
+
+**Need copy-paste fixes?** Check our [Quick Fixes](/troubleshooting/quick-fixes) page for terminal commands, DNS records, and other fast solutions.

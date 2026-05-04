@@ -90,6 +90,22 @@ import Layout from '../layouts/Layout.astro';
       </svg>
     </a>
     
+    <a href="/guides/agent-system/client-guide" class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 11l3 3L22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h3>Getting Started</h3>
+        <p>Set up your AI assistant in 5 minutes — connect, say hello, and start delegating tasks.</p>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14m-7-7 7 7-7 7"/>
+      </svg>
+    </a>
+    
     <a href="/guides/agent-system/security" class="card">
       <div class="card-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -182,15 +198,7 @@ import Layout from '../layouts/Layout.astro';
   </footer>
 
 <script>
-  // Search functionality
-  const searchInput = document.getElementById('search-input');
-  searchInput?.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      const query = (e.target as HTMLInputElement).value;
-      if (query.trim()) {
-        window.location.href = `https://www.google.com/search?q=site:docs.cc3po.com+${encodeURIComponent(query)}`;
-      }
-    }
-  });
+  // Search input now triggers the global search modal (⌘K)
+  // Actual search logic lives in SearchModal.astro
 </script>
 </Layout>

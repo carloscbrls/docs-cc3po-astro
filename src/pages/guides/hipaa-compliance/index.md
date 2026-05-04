@@ -269,7 +269,7 @@ Contact us immediately. We'll help you prepare documentation and respond to the 
 
 - [HIPAA.gov](https://www.hhs.gov/hipaa) — Official HIPAA information
 - [Your Privacy Policy](/privacy) — Your website's privacy policy
-- [Your HIPAA Notice](/hipaa-notice) — Notice of Privacy Practices
+- [HIPAA Notice of Privacy Practices](https://cc3po.com) — Contact us for your Notice of Privacy Practices
 
 ---
 

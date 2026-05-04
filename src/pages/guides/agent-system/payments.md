@@ -87,3 +87,7 @@ All invoices are available in your Stripe dashboard. If you need a custom invoic
 ---
 
 *Questions about billing? Email [support@cc3po.com](mailto:support@cc3po.com)*
+
+---
+
+**Related guides:** [Getting Started](/guides/agent-system/client-guide) · [FAQ](/guides/agent-system/faq) · [Security & Privacy](/guides/agent-system/security)

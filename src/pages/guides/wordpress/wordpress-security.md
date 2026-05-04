@@ -168,4 +168,4 @@ Set up alerts for:
 
 - [WordPress Setup Guide](/guides/wordpress/wordpress-setup)
 - [WordPress Optimization](/guides/wordpress/wordpress-optimization)
-- [Security Best Practices](/guides/security)
+- [Security Best Practices](/guides/agent-system/security)

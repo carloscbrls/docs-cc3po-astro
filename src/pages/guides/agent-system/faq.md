@@ -9,6 +9,8 @@ navOrder: 17
 
 Everything you wanted to know about working with your CC3PO AI assistant.
 
+**New?** Start with the [Getting Started guide](/guides/agent-system/client-guide) — it takes 5 minutes.
+
 ## General
 
 ### What exactly is an AI assistant?

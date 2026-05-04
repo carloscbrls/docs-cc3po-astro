@@ -1,0 +1,386 @@
+---
+// SearchModal — Client-side search overlay for docs.cc3po.com
+// Searches page titles and descriptions from a pre-built search index.
+// Triggers on ⌘K / Ctrl+K or clicking the search input.
+
+interface SearchEntry {
+  title: string;
+  description: string;
+  href: string;
+  section: string;
+}
+
+const pages: SearchEntry[] = [
+  { title: "Welcome", description: "Find answers, fix fast. CC3PO Knowledge Base home.", href: "/", section: "Getting Started" },
+  { title: "Getting Started With Your AI Assistant", description: "Set up your AI assistant in 5 minutes — step by step, with screenshots.", href: "/guides/agent-system/client-guide", section: "Your AI Assistant" },
+  { title: "What It Can Do", description: "Everything your AI assistant can handle — social media, website, leads, and more.", href: "/guides/agent-system/knowledge", section: "Your AI Assistant" },
+  { title: "Social Media", description: "How your AI assistant manages your social media presence automatically.", href: "/guides/agent-system/social-media", section: "Your AI Assistant" },
+  { title: "Your Website", description: "How your AI assistant manages and monitors your website.", href: "/guides/agent-system/website", section: "Your AI Assistant" },
+  { title: "Lead Generation", description: "How your AI assistant finds and follows up with leads for your business.", href: "/guides/agent-system/lead-generation", section: "Your AI Assistant" },
+  { title: "Security & Privacy", description: "How your data stays safe — SSL, encryption, monitoring, and privacy explained.", href: "/guides/agent-system/security", section: "Your AI Assistant" },
+  { title: "Billing & Payments", description: "Plans, pricing, and payment details for your CC3PO service.", href: "/guides/agent-system/payments", section: "Your AI Assistant" },
+  { title: "FAQ", description: "Common questions answered — what your AI assistant does, how it works, pricing, and more.", href: "/guides/agent-system/faq", section: "Your AI Assistant" },
+  { title: "Agent System Overview", description: "Overview of the CC3PO agent system — pricing, capabilities, and how to get started.", href: "/guides/agent-system/", section: "Your AI Assistant" },
+  { title: "WordPress Setup Guide", description: "Step-by-step guide to setting up your WordPress site with CC3PO.", href: "/guides/wordpress/wordpress-setup", section: "WordPress Guides" },
+  { title: "WordPress Security", description: "Essential security measures to protect your WordPress site from common vulnerabilities.", href: "/guides/wordpress/wordpress-security", section: "WordPress Guides" },
+  { title: "WordPress Optimization", description: "Speed and performance optimization tips for your WordPress site.", href: "/guides/wordpress/wordpress-optimization", section: "WordPress Guides" },
+  { title: "Our Services", description: "Overview of CC3PO services — AI assistants, websites, social media, and more.", href: "/guides/services/", section: "Services" },
+  { title: "AI Automation Workflows", description: "How your AI assistant works, workflows, and getting the most from automation.", href: "/guides/ai/ai-automation-workflows", section: "AI & Automation" },
+  { title: "Chatbot Setup", description: "Setting up and configuring your AI chatbot for your business.", href: "/guides/ai/chatbot-setup", section: "AI & Automation" },
+  { title: "HIPAA Compliance", description: "HIPAA compliance guide for healthcare websites — BAA, safeguards, and requirements.", href: "/guides/hipaa-compliance/", section: "Compliance" },
+  { title: "Web Excellence Handbook", description: "Best practices for website performance, accessibility, and user experience.", href: "/guides/web-excellence/handbook", section: "Resources" },
+  { title: "Common Issues & Fixes", description: "Site down? Email going to spam? Can't log in? Here's what to do — in plain English.", href: "/troubleshooting/common-issues", section: "Troubleshooting" },
+  { title: "Quick Fixes", description: "Copy-paste solutions for the most common problems. Most take under 5 minutes.", href: "/troubleshooting/quick-fixes", section: "Troubleshooting" },
+  { title: "Terms of Service", description: "CC3PO terms of service and legal agreements.", href: "/terms", section: "Legal" },
+  { title: "Privacy Policy", description: "CC3PO privacy policy and data handling practices.", href: "/privacy", section: "Legal" },
+  { title: "Disclaimer", description: "CC3PO disclaimer and limitations of liability.", href: "/disclaimer", section: "Legal" },
+  { title: "AI Tools", description: "AI-powered tools and features available for your business.", href: "/ai-tools", section: "AI & Automation" },
+  { title: "WordPress Hosting", description: "Managed WordPress hosting details and specifications.", href: "/wordpress-hosting", section: "WordPress Guides" },
+  { title: "SOPs", description: "Standard operating procedures for your AI assistant.", href: "/guides/agent-system/sops", section: "Your AI Assistant" },
+  { title: "Prompts", description: "Custom prompts and commands for your AI assistant.", href: "/guides/agent-system/prompts", section: "Your AI Assistant" },
+  { title: "Track Record", description: "Our track record — what we've built and delivered for clients.", href: "/guides/agent-system/track-record", section: "Your AI Assistant" },
+  { title: "Memory & Learning", description: "How your AI assistant learns and remembers preferences over time.", href: "/guides/agent-system/memory", section: "Your AI Assistant" },
+  { title: "Learning Styles", description: "Understanding how your AI assistant adapts to your communication style.", href: "/guides/agent-system/learning-styles", section: "Your AI Assistant" },
+  { title: "Key Learnings", description: "What we've discovered — insights and improvements from running AI assistants.", href: "/guides/agent-system/learnings", section: "Your AI Assistant" },
+  { title: "White Label Security", description: "White label security features and client-facing security documentation.", href: "/guides/agent-system/white-label-security", section: "Your AI Assistant" },
+  { title: "GitHub Integration", description: "How to integrate your AI assistant with GitHub for development workflows.", href: "/guides/agent-system/github-integration", section: "Your AI Assistant" },
+];
+---
+
+<div id="search-modal" class="search-modal" style="display:none;" role="dialog" aria-modal="true" aria-label="Search documentation">
+  <div class="search-modal-backdrop" id="search-backdrop"></div>
+  <div class="search-modal-content">
+    <div class="search-modal-header">
+      <svg class="search-modal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" id="search-modal-input" class="search-modal-input" placeholder="Search documentation..." autocomplete="off" />
+      <kbd class="search-modal-kbd">ESC</kbd>
+    </div>
+    <div id="search-results" class="search-results">
+      <div class="search-results-hint">Type to search across all documentation pages</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .search-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: min(20vh, 120px);
+  }
+
+  .search-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+  }
+
+  .search-modal-content {
+    position: relative;
+    width: min(600px, 90vw);
+    max-height: 70vh;
+    background: #14141c;
+    border: 1px solid #1f1f2e;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(76, 201, 240, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #1f1f2e;
+  }
+
+  .search-modal-icon {
+    width: 20px;
+    height: 20px;
+    color: #6b6b75;
+    flex-shrink: 0;
+  }
+
+  .search-modal-input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    outline: none;
+  }
+
+  .search-modal-input::placeholder {
+    color: #6b6b75;
+  }
+
+  .search-modal-kbd {
+    background: #1a1a24;
+    border: 1px solid #1f1f2e;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    color: #6b6b75;
+    font-family: inherit;
+    flex-shrink: 0;
+  }
+
+  .search-results {
+    overflow-y: auto;
+    max-height: calc(70vh - 60px);
+    padding: 8px;
+  }
+
+  .search-results-hint {
+    padding: 24px 16px;
+    text-align: center;
+    color: #6b6b75;
+    font-size: 0.9rem;
+  }
+
+  .search-result-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+    cursor: pointer;
+  }
+
+  .search-result-item:hover,
+  .search-result-item.active {
+    background: rgba(76, 201, 240, 0.08);
+  }
+
+  .search-result-section {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #4cc9f0;
+    margin-bottom: 2px;
+  }
+
+  .search-result-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+
+  .search-result-description {
+    font-size: 0.82rem;
+    color: #a0a4b8;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .search-result-item mark {
+    background: rgba(76, 201, 240, 0.25);
+    color: #4cc9f0;
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+
+  .search-no-results {
+    padding: 24px 16px;
+    text-align: center;
+    color: #6b6b75;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 600px) {
+    .search-modal {
+      padding-top: 0;
+      align-items: flex-start;
+    }
+    .search-modal-content {
+      width: 100%;
+      max-height: 100vh;
+      border-radius: 0;
+      height: 100vh;
+    }
+    .search-results {
+      max-height: calc(100vh - 60px);
+    }
+  }
+</style>
+
+<script define:vars={{ pages }}>
+  const searchModal = document.getElementById('search-modal');
+  const searchBackdrop = document.getElementById('search-backdrop');
+  const searchInput = document.getElementById('search-modal-input');
+  const searchResults = document.getElementById('search-results');
+  const homeSearchInput = document.getElementById('search-input');
+
+  let activeIndex = -1;
+
+  function openSearch() {
+    searchModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    if (homeSearchInput) homeSearchInput.value = '';
+    setTimeout(() => searchInput?.focus(), 50);
+  }
+
+  function closeSearch() {
+    searchModal.style.display = 'none';
+    document.body.style.overflow = '';
+    searchInput.value = '';
+    searchResults.innerHTML = '<div class="search-results-hint">Type to search across all documentation pages</div>';
+    activeIndex = -1;
+  }
+
+  // Open on ⌘K / Ctrl+K
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      if (searchModal.style.display === 'flex') {
+        closeSearch();
+      } else {
+        openSearch();
+      }
+    }
+    if (e.key === 'Escape' && searchModal.style.display === 'flex') {
+      closeSearch();
+    }
+  });
+
+  // Open when clicking home search input
+  if (homeSearchInput) {
+    homeSearchInput.addEventListener('focus', (e) => {
+      e.preventDefault();
+      homeSearchInput.blur();
+      openSearch();
+      if (homeSearchInput.value) {
+        searchInput.value = homeSearchInput.value;
+        performSearch(homeSearchInput.value);
+      }
+    });
+    // Also intercept Enter on home search
+    homeSearchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        openSearch();
+        if (homeSearchInput.value) {
+          searchInput.value = homeSearchInput.value;
+          performSearch(homeSearchInput.value);
+        }
+      }
+    });
+  }
+
+  // Close on backdrop click
+  searchBackdrop?.addEventListener('click', closeSearch);
+
+  // Search logic
+  function highlight(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+
+  function performSearch(query) {
+    if (!query.trim()) {
+      searchResults.innerHTML = '<div class="search-results-hint">Type to search across all documentation pages</div>';
+      activeIndex = -1;
+      return;
+    }
+
+    const q = query.toLowerCase().trim();
+    const words = q.split(/\s+/);
+
+    const scored = pages.map(page => {
+      const titleLower = page.title.toLowerCase();
+      const descLower = page.description.toLowerCase();
+      const sectionLower = page.section.toLowerCase();
+
+      let score = 0;
+      let matchTitle = false;
+      let matchDesc = false;
+
+      for (const word of words) {
+        if (titleLower.includes(word)) { score += 10; matchTitle = true; }
+        if (descLower.includes(word)) { score += 5; matchDesc = true; }
+        if (sectionLower.includes(word)) { score += 3; }
+      }
+
+      if (!matchTitle && !matchDesc && words.length > 1) {
+        // Check if all words appear somewhere in title+desc combined
+        const combined = titleLower + ' ' + descLower;
+        if (words.every(w => combined.includes(w))) {
+          score += 2;
+        }
+      }
+
+      return { ...page, score, matchTitle, matchDesc };
+    }).filter(p => p.score > 0).sort((a, b) => b.score - a.score);
+
+    if (scored.length === 0) {
+      searchResults.innerHTML = `<div class="search-no-results">No results found for "${query.replace(/</g, '&lt;')}"</div>`;
+      activeIndex = -1;
+      return;
+    }
+
+    activeIndex = -1;
+    searchResults.innerHTML = scored.map((r, i) => `
+      <a href="${r.href}" class="search-result-item" data-index="${i}">
+        <span class="search-result-section">${r.section}</span>
+        <span class="search-result-title">${highlight(r.title, query)}</span>
+        <span class="search-result-description">${highlight(r.description, query)}</span>
+      </a>
+    `).join('');
+
+    // Click to navigate
+    searchResults.querySelectorAll('.search-result-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = item.getAttribute('href');
+        closeSearch();
+        window.location.href = href;
+      });
+    });
+  }
+
+  // Live search as you type
+  searchInput?.addEventListener('input', (e) => {
+    performSearch(e.target.value);
+  });
+
+  // Keyboard navigation in results
+  searchInput?.addEventListener('keydown', (e) => {
+    const items = searchResults.querySelectorAll('.search-result-item');
+    if (!items.length) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, items.length - 1);
+      items.forEach((el, i) => el.classList.toggle('active', i === activeIndex));
+      items[activeIndex]?.scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      items.forEach((el, i) => el.classList.toggle('active', i === activeIndex));
+      items[activeIndex]?.scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (activeIndex >= 0 && items[activeIndex]) {
+        items[activeIndex].click();
+      }
+    }
+  });
+</script>

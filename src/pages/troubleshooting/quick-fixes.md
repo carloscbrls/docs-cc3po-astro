@@ -1,12 +1,14 @@
 ---
 layout: '../../layouts/Layout.astro'
 title: 'Quick Fixes'
-description: 'Fast solutions for the most common problems — copy, paste, done.'
+description: 'Fast solutions for the most common problems — copy, paste, done. Most take under 5 minutes.'
 ---
 
 ## Quick Fixes
 
 These are the fastest solutions we give clients every day. Most take under 5 minutes.
+
+> 💡 **Not technical?** No worries — just [contact us](https://offers.cc3po.com/get-started/) and we'll handle it. These fixes are here for when you want to try it yourself first.
 
 ---
 
@@ -133,3 +135,7 @@ sudo crontab -u username -l
 ---
 
 > **Need more help?** These fixes cover 80% of what we see. For anything else, [contact us](https://offers.cc3po.com/get-started/) — we're here 24/7.
+
+---
+
+**Need a bigger-picture explanation?** Check our [Common Issues](/troubleshooting/common-issues) page for detailed walkthroughs of each problem.

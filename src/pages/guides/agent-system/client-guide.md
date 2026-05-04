@@ -192,3 +192,7 @@ When you signed up, you received a welcome email with:
 ---
 
 *Last updated: May 2026*
+
+---
+
+**Next steps:** [What It Can Do](/guides/agent-system/knowledge) · [FAQ](/guides/agent-system/faq) · [Billing & Payments](/guides/agent-system/payments)

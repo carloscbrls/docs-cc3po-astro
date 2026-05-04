@@ -699,22 +699,27 @@ button, a {
   align-items: center;
   gap: 10px;
   background: var(--accent);
-  color: #000;
-  font-weight: 600;
+  color: #0a0a1a !important;
+  font-weight: 700;
   font-size: 1rem;
   padding: 14px 28px;
   border-radius: 10px;
   text-decoration: none;
   transition: all 0.2s;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: none;
 }
 .ai-cta:hover {
   background: #7dd3f8;
+  color: #0a0a1a !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(76, 201, 240, 0.3);
 }
 .ai-cta svg {
   width: 20px;
   height: 20px;
+  stroke: #0a0a1a !important;
+  fill: none !important;
 }
 .ai-showcase-features {
   display: flex;

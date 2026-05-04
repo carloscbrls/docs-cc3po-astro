@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: GitHub Integration for the Village
 description: Tools, pricing, and setup guide for GitHub automation
 ---

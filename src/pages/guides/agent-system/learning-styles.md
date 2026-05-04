@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Learning Styles & Training Methods
 description: How to train AI agents and onboard clients using proven learning methodologies
 ---

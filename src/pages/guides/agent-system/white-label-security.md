@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: White-Labeling & Security for Client Data
 description: How to securely white-label Supabase and protect client data
 ---

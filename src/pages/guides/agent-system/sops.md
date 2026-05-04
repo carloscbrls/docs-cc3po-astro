@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Standard Operating Procedures
 description: Proven workflows and processes for business automation
 ---

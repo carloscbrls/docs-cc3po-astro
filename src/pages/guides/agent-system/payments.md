@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Billing & Payments
 description: Plans, pricing, and payment details for your CC3PO service
 navOrder: 16

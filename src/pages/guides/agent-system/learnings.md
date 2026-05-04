@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Key Learnings
 description: Important decisions and insights from running CC3PO
 ---

@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Knowledge Base
 description: Learnings, best practices, and insights from the village
 ---

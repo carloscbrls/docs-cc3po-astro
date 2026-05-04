@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Prompt Engineering for Agents
 description: How to write effective prompts for AI agents
 ---

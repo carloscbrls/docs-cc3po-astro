@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Security & Privacy
 description: How your AI assistant keeps your data and systems secure
 navOrder: 15

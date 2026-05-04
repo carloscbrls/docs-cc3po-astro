@@ -2,14 +2,16 @@
 import CookieBanner from '../components/CookieBanner.astro';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
   faqSchema?: Array<{ question: string; answer: string }>;
 }
 
+// Astro markdown pages pass frontmatter via Astro.props.frontmatter
+const frontmatter = Astro.props.frontmatter || {};
 const { 
-  title, 
-  description = "CC3PO Knowledge Base - Technical guides, SOPs, and best practices for AI automation, WordPress, and business optimization",
+  title = frontmatter.title || 'Docs', 
+  description = frontmatter.description || "CC3PO Knowledge Base - Technical guides, SOPs, and best practices for AI automation, WordPress, and business optimization",
   faqSchema
 } = Astro.props;
 

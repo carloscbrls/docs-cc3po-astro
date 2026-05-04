@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Bolt.new Documentation
 description: AI-powered website builder for rapid development
 ---

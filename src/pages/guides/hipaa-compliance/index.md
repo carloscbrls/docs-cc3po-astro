@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: HIPAA Compliance for Client Websites
 description: Complete guide for CC3PO clients on HIPAA compliance, what's included in your care plan, and your responsibilities.
 ---

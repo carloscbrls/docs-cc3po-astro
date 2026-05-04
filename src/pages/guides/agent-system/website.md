@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Your Website
 description: How your AI assistant manages and monitors your website — explained in plain English
 navOrder: 13

@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Lead Generation
 description: How your AI assistant finds and qualifies leads for your business
 navOrder: 14

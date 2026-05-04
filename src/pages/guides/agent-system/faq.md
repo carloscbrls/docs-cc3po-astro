@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Frequently Asked Questions
 description: Common questions about CC3PO's AI assistant service answered
 navOrder: 17

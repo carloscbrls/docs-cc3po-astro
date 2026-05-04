@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Getting Started
 description: Set up your AI assistant in 5 minutes — step by step, with screenshots.
 navOrder: 1

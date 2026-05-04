@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Our Track Record
 description: Proven history of building AI-powered automation systems
 ---

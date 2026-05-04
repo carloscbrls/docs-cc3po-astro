@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Our Services
 description: Overview of all CC3PO services — AI assistants, IT consulting, dental IT, HIPAA compliance, website care, and audits
 navOrder: 20

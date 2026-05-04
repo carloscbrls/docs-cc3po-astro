@@ -1,4 +1,5 @@
 # CC3PO Web Excellence Handbook
+layout: '../../../layouts/Layout.astro'
 
 *A living document capturing our learnings, standards, and continuous improvement process for maintaining a consistently excellent web presence.*
 

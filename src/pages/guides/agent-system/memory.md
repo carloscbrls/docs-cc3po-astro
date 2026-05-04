@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: Context & Memory
 description: How agents remember and learn over time
 ---

@@ -1,4 +1,5 @@
 ---
+layout: '../../../layouts/Layout.astro'
 title: CC3PO Agent System
 description: Your AI-powered business automation team
 ---

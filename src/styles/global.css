@@ -760,3 +760,390 @@ button, a {
     font-size: 1.4rem;
   }
 }
+
+/* =============================================
+   CC3PO Prose / Markdown Content Styles
+   Applied to all rendered markdown inside .main-content
+   ============================================= */
+
+.main-content h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 2.5rem 0 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  border-bottom: 2px solid #D4AF37;
+  padding-bottom: 0.75rem;
+}
+
+.main-content h1:first-child {
+  margin-top: 0;
+}
+
+.main-content h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 2.5rem 0 0.75rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.main-content h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #e8e8ed;
+  margin: 2rem 0 0.5rem;
+  line-height: 1.3;
+}
+
+.main-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #d0d0da;
+  margin: 1.5rem 0 0.5rem;
+  line-height: 1.35;
+}
+
+.main-content h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #b0bec5;
+  margin: 1.25rem 0 0.4rem;
+  line-height: 1.4;
+}
+
+.main-content h6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #8892a4;
+  margin: 1.25rem 0 0.4rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.main-content p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #b0bec5;
+  margin: 0 0 1.25rem;
+}
+
+.main-content strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.main-content em {
+  color: #c8d0dc;
+  font-style: italic;
+}
+
+.main-content a {
+  color: #4cc9f0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(76, 201, 240, 0.3);
+  transition: all 0.2s ease;
+}
+
+.main-content a:hover {
+  color: #7dd3f8;
+  border-bottom-color: #4cc9f0;
+}
+
+.main-content ul,
+.main-content ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.75rem;
+  color: #b0bec5;
+}
+
+.main-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.main-content ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.main-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 7px;
+  height: 7px;
+  background: #4cc9f0;
+  border-radius: 50%;
+}
+
+.main-content ol {
+  list-style: none;
+  counter-reset: cc3po-ol;
+  padding-left: 0;
+}
+
+.main-content ol li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+  counter-increment: cc3po-ol;
+}
+
+.main-content ol li::before {
+  content: counter(cc3po-ol);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: #D4AF37;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.main-content li > ul,
+.main-content li > ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #1f1f2e 20%, #D4AF37 50%, #1f1f2e 80%, transparent 100%);
+  margin: 2rem 0;
+}
+
+.main-content blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #D4AF37;
+  background: rgba(212, 175, 55, 0.06);
+  border-radius: 0 8px 8px 0;
+  color: #c8d0dc;
+}
+
+.main-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.main-content blockquote strong {
+  color: #D4AF37;
+}
+
+/* Code — inline */
+.main-content code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Consolas', monospace;
+  font-size: 0.875rem;
+  background: #0f0f18;
+  color: #4cc9f0;
+  padding: 0.2em 0.45em;
+  border-radius: 5px;
+  border: 1px solid #1f1f2e;
+}
+
+/* Code — block */
+.main-content pre {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: #0f0f18;
+  border: 1px solid #1f1f2e;
+  border-radius: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.main-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #c8d0dc;
+}
+
+/* Tables */
+.main-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.main-content thead th {
+  background: #14141c;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid #D4AF37;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.main-content tbody td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #1f1f2e;
+  color: #b0bec5;
+}
+
+.main-content tbody tr:hover {
+  background: rgba(76, 201, 240, 0.04);
+}
+
+.main-content tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Table scroll wrapper for mobile */
+.main-content .table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  border: 1px solid #1f1f2e;
+}
+
+.main-content .table-wrapper table {
+  margin: 0;
+}
+
+/* Images */
+.main-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  border: 1px solid #1f1f2e;
+}
+
+/* =============================================
+   CC3PO Callout / Info Boxes
+   Usage in markdown:
+     > [!TIP] This is a tip
+     > [!WARNING] This is a warning
+     > [!NOTE] This is a note
+   Or with div class:
+     <div class="callout tip">Content</div>
+   ============================================= */
+
+.main-content .callout,
+.main-content [data-callout] {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.main-content .callout :last-child,
+.main-content [data-callout] :last-child {
+  margin-bottom: 0;
+}
+
+.main-content .callout.tip,
+.main-content [data-callout="tip"] {
+  background: rgba(76, 201, 240, 0.08);
+  border: 1px solid rgba(76, 201, 240, 0.25);
+  border-left: 4px solid #4cc9f0;
+  color: #b0bec5;
+}
+
+.main-content .callout.tip strong,
+.main-content [data-callout="tip"] strong {
+  color: #4cc9f0;
+}
+
+.main-content .callout.warning,
+.main-content [data-callout="warning"] {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-left: 4px solid #f59e0b;
+  color: #b0bec5;
+}
+
+.main-content .callout.warning strong,
+.main-content [data-callout="warning"] strong {
+  color: #f59e0b;
+}
+
+.main-content .callout.note,
+.main-content [data-callout="note"] {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-left: 4px solid #D4AF37;
+  color: #b0bec5;
+}
+
+.main-content .callout.note strong,
+.main-content [data-callout="note"] strong {
+  color: #D4AF37;
+}
+
+.main-content .callout.danger,
+.main-content [data-callout="danger"] {
+  background: rgba(247, 37, 133, 0.08);
+  border: 1px solid rgba(247, 37, 133, 0.25);
+  border-left: 4px solid #f72585;
+  color: #b0bec5;
+}
+
+.main-content .callout.danger strong,
+.main-content [data-callout="danger"] strong {
+  color: #f72585;
+}
+
+/* =============================================
+   Mobile Responsive Prose Adjustments
+   ============================================= */
+
+@media (max-width: 900px) {
+  .main-content h1 {
+    font-size: 1.75rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .main-content h2 {
+    font-size: 1.4rem;
+    margin: 1.75rem 0 0.5rem;
+  }
+
+  .main-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .main-content h4 {
+    font-size: 1rem;
+  }
+
+  .main-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .main-content table {
+    font-size: 0.85rem;
+  }
+
+  .main-content thead th,
+  .main-content tbody td {
+    padding: 0.5rem 0.65rem;
+  }
+
+  .main-content pre {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .main-content blockquote {
+    padding: 0.75rem 1rem;
+  }
+}

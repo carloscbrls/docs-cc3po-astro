@@ -322,6 +322,16 @@ const currentPath = Astro.url.pathname;
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeSidebar();
       });
+
+      // Wrap tables in scrollable container for mobile
+      document.querySelectorAll('.main-content table').forEach(table => {
+        if (!table.parentElement.classList.contains('table-wrapper')) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'table-wrapper';
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        }
+      });
     </script>
   </body>
 </html>

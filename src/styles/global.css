@@ -1149,9 +1149,14 @@ button, a {
 }
 
 /* Search result highlighting - override browser defaults */
-mark {
-  background: rgba(76, 201, 240, 0.3);
-  color: #4cc9f0;
+.search-modal mark,
+#search-modal mark,
+mark.search-highlight {
+  background: rgba(76, 201, 240, 0.3) !important;
+  color: #4cc9f0 !important;
+  -webkit-text-fill-color: #4cc9f0 !important;
   border-radius: 2px;
   padding: 1px 3px;
+  font-weight: 600;
+  box-shadow: none;
 }

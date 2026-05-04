@@ -708,30 +708,90 @@ button, a {
   color: rgba(255, 255, 255, 0.65);
   font-size: 0.95rem;
   line-height: 1.6;
-  margin: 0 0 20px 0;
+  margin: 0;
 }
-.help-cta-button {
+
+/* Help CTA Form */
+.help-cta-form {
+  background: linear-gradient(135deg, #0d1b2a 0%, #162447 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(76, 201, 240, 0.15);
+  padding: 32px;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.help-cta-form .form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.help-cta-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.help-cta-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.help-cta-form input,
+.help-cta-form textarea {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+.help-cta-form input:focus,
+.help-cta-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(76, 201, 240, 0.05);
+}
+.help-cta-form input::placeholder,
+.help-cta-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.help-cta-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.help-cta-form .help-cta-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: var(--accent);
   color: #0a0a1a !important;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 12px 24px;
+  padding: 12px 28px;
+  border: none;
   border-radius: 10px;
+  cursor: pointer;
   text-decoration: none;
   transition: all 0.2s;
   -webkit-font-smoothing: antialiased;
   text-shadow: none;
+  width: 100%;
+  margin-top: 8px;
 }
-.help-cta-button:hover {
+.help-cta-form .help-cta-button:hover {
   background: #7dd3f8;
   color: #0a0a1a !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(76, 201, 240, 0.3);
 }
-.help-cta-button svg {
+.help-cta-form .help-cta-button svg {
   width: 18px;
   height: 18px;
   stroke: #0a0a1a !important;
@@ -754,6 +814,17 @@ button, a {
   }
   .help-cta-content h2 {
     font-size: 1.3rem;
+  }
+  .help-cta-form {
+    padding: 24px 20px;
+  }
+  .help-cta-form .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .help-cta-form input,
+  .help-cta-form textarea {
+    font-size: 16px;
   }
 }
 

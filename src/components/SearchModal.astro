@@ -56,6 +56,7 @@ const pages: SearchEntry[] = [
         <path d="m21 21-4.35-4.35"/>
       </svg>
       <input type="text" id="search-modal-input" class="search-modal-input" placeholder="Search documentation..." autocomplete="off" />
+      <button class="search-modal-close" id="search-close" aria-label="Close search">✕</button>
       <kbd class="search-modal-kbd">ESC</kbd>
     </div>
     <div id="search-results" class="search-results">
@@ -135,6 +136,24 @@ const pages: SearchEntry[] = [
     flex-shrink: 0;
   }
 
+  .search-modal-close {
+    background: none;
+    border: none;
+    color: #6b6b75;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .search-modal-close:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
   .search-results {
     overflow-y: auto;
     max-height: calc(70vh - 60px);
@@ -191,10 +210,12 @@ const pages: SearchEntry[] = [
   }
 
   .search-result-item mark {
-    background: rgba(76, 201, 240, 0.25);
-    color: #4cc9f0;
+    background: rgba(76, 201, 240, 0.3) !important;
+    color: #4cc9f0 !important;
     border-radius: 2px;
-    padding: 0 2px;
+    padding: 1px 3px;
+    font-weight: 600;
+    -webkit-text-fill-color: #4cc9f0;
   }
 
   .search-no-results {
@@ -215,8 +236,26 @@ const pages: SearchEntry[] = [
       border-radius: 0;
       height: 100vh;
     }
+    .search-modal-header {
+      padding: 14px 16px;
+    }
+    .search-modal-input {
+      font-size: 16px; /* Prevents iOS zoom on focus */
+    }
     .search-results {
-      max-height: calc(100vh - 60px);
+      max-height: calc(100vh - 56px);
+    }
+    .search-result-item {
+      padding: 14px 16px;
+    }
+    .search-result-title {
+      font-size: 1rem;
+    }
+    .search-result-description {
+      font-size: 0.88rem;
+    }
+    .search-modal-kbd {
+      display: none;
     }
   }
 </style>
@@ -286,6 +325,9 @@ const pages: SearchEntry[] = [
 
   // Close on backdrop click
   searchBackdrop?.addEventListener('click', closeSearch);
+
+  // Close on close button
+  document.getElementById('search-close')?.addEventListener('click', closeSearch);
 
   // Search logic
   function highlight(text, query) {

@@ -840,7 +840,7 @@ button, a {
   margin: 2.5rem 0 1rem;
   line-height: 1.2;
   letter-spacing: -0.025em;
-  border-bottom: 2px solid #D4AF37;
+  border-bottom: 2px solid #e94560;
   padding-bottom: 0.75rem;
 }
 
@@ -970,7 +970,7 @@ button, a {
   left: 0;
   top: 0;
   font-weight: 700;
-  color: #D4AF37;
+  color: #e94560;
   font-size: 0.9rem;
   line-height: 1.7;
 }
@@ -984,14 +984,14 @@ button, a {
 .main-content hr {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #1f1f2e 20%, #D4AF37 50%, #1f1f2e 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #1f1f2e 20%, #e94560 50%, #1f1f2e 80%, transparent 100%);
   margin: 2rem 0;
 }
 
 .main-content blockquote {
   margin: 1.5rem 0;
   padding: 1rem 1.25rem;
-  border-left: 4px solid #D4AF37;
+  border-left: 4px solid #e94560;
   background: rgba(212, 175, 55, 0.06);
   border-radius: 0 8px 8px 0;
   color: #c8d0dc;
@@ -1002,7 +1002,7 @@ button, a {
 }
 
 .main-content blockquote strong {
-  color: #D4AF37;
+  color: #e94560;
 }
 
 /* Code — inline */
@@ -1050,7 +1050,7 @@ button, a {
   font-weight: 600;
   text-align: left;
   padding: 0.75rem 1rem;
-  border-bottom: 2px solid #D4AF37;
+  border-bottom: 2px solid #e94560;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -1146,13 +1146,13 @@ button, a {
 .main-content [data-callout="note"] {
   background: rgba(212, 175, 55, 0.08);
   border: 1px solid rgba(212, 175, 55, 0.25);
-  border-left: 4px solid #D4AF37;
+  border-left: 4px solid #e94560;
   color: #b0bec5;
 }
 
 .main-content .callout.note strong,
 .main-content [data-callout="note"] strong {
-  color: #D4AF37;
+  color: #e94560;
 }
 
 .main-content .callout.danger,

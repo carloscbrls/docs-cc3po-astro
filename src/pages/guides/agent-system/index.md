@@ -24,7 +24,7 @@ Your own team of AI agents that work 24/7 to automate your business.
 
 <div style="background: linear-gradient(135deg, #6366F1, #4F46E5); padding: 24px; border-radius: 12px; text-align: center;">
 <div style="font-size: 48px; font-weight: 800; color: #fff;">28</div>
-<div style="font-size: 14px; color: #fff; opacity: 0.8;">AI Agents Built</div>
+<div style="font-size: 14px; color: #fff; opacity: 0.8;">Automated Systems Built</div>
 </div>
 
 <div style="background: linear-gradient(135deg, #22C55E, #16A34A); padding: 24px; border-radius: 12px; text-align: center;">

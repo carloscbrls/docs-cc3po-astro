@@ -186,7 +186,7 @@ When you signed up, you received a welcome email with:
 |------|---------|---------------|
 | General questions | Telegram (ask your assistant) | Immediate |
 | Email support | support@cc3po.com | Within 24 hours |
-| Phone support | 209-423-6633 | Business hours (M-F 9am-5pm PT) |
+| Phone support | (209) 232-1265 | Business hours (M-F 9am-5pm PT) |
 | Emergency | support@cc3po.com (subject: URGENT) | Within 4 hours |
 
 ---

@@ -257,7 +257,7 @@ Contact us immediately. We'll help you prepare documentation and respond to the 
 
 **For HIPAA questions:**
 - Email: legal@cc3po.com
-- Phone: (209) 423-6633
+- Phone: (209) 232-1265
 
 **For technical support:**
 - Email: support@cc3po.com

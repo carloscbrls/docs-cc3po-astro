@@ -67,6 +67,30 @@ const currentPath = Astro.url.pathname;
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Header Bar -->
+    <header class="docs-topbar">
+      <div class="docs-topbar-inner">
+        <div class="docs-topbar-left">
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12h18M3 6h18M3 18h18"/>
+            </svg>
+          </button>
+          <a href="/" class="docs-topbar-logo">
+            <img src="/images/cc3po-crypto-56px.png" alt="CC3PO" class="topbar-logo-img">
+            <span class="topbar-logo-text">CC3PO <span class="topbar-logo-sep">·</span> <span class="topbar-logo-sub">Docs</span></span>
+          </a>
+        </div>
+        <nav class="docs-topbar-nav" aria-label="Site navigation">
+          <a href="https://cc3po.com" class="topbar-nav-link" target="_blank" rel="noopener">Main Site ↗</a>
+          <a href="https://insights.cc3po.com" class="topbar-nav-link" target="_blank" rel="noopener">Blog ↗</a>
+          <a href="https://offers.cc3po.com" class="topbar-nav-link" target="_blank" rel="noopener">Services ↗</a>
+          <a href="https://audit.cc3po.com" class="topbar-cta-link">Free Scan</a>
+        </nav>
+      </div>
+    </header>
+
     <div class="docs-layout">
       <aside class="sidebar" id="sidebar" role="navigation" aria-label="Documentation navigation">
         <a href="/" class="sidebar-logo">
@@ -185,6 +209,30 @@ const currentPath = Astro.url.pathname;
           </div>
 
           <div class="nav-section">
+            <div class="nav-section-title">Compliance</div>
+            <a href="/guides/compliance-plans-tutorial" class:list={["nav-link", { active: currentPath === "/guides/compliance-plans-tutorial" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              Compliance Plans
+            </a>
+            <a href="/guides/comply-dashboard-tutorial" class:list={["nav-link", { active: currentPath === "/guides/comply-dashboard-tutorial" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18M9 21V9"/>
+              </svg>
+              Comply Dashboard
+            </a>
+            <a href="/guides/hipaa-compliance/" class:list={["nav-link", { active: currentPath === "/guides/hipaa-compliance/" || currentPath === "/guides/hipaa-compliance" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              HIPAA Guide
+            </a>
+          </div>
+
+          <div class="nav-section">
             <div class="nav-section-title">AI & Automation</div>
             <a href="/guides/ai/ai-automation-workflows" class:list={["nav-link", { active: currentPath === "/guides/ai/ai-automation-workflows" }]}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -208,6 +256,20 @@ const currentPath = Astro.url.pathname;
                 <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
               </svg>
               Blog ↗
+            </a>
+            <a href="https://stories.cc3po.com" class="nav-link" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+              Stories ↗
+            </a>
+            <a href="/guides/sales-guide" class:list={["nav-link", { active: currentPath === "/guides/sales-guide" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              Sales Guide
             </a>
             <a href="https://offers.cc3po.com" class="nav-link" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -254,53 +316,74 @@ const currentPath = Astro.url.pathname;
     <!-- Footer -->
     <footer class="docs-footer">
       <div class="docs-footer-inner">
-        <p class="footer-certifications" style="font-size:12px;color:#a1a1aa;margin-bottom:4px;">CA Certified Small Business — SB #2052063 · Latino-Owned Business · Se habla español</p>
-        <p>© {new Date().getFullYear()} CC3PO LLC. All rights reserved. Safe, Compliant, and Fast — Done For You. · 16299 Adobe Way, Lathrop, CA 95330</p>
-        <div class="docs-footer-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/disclaimer">Disclaimer</a>
+        <div class="docs-footer-brand">
+          <div class="docs-footer-logo-row">
+            <img src="/images/cc3po-crypto-56px.png" alt="CC3PO" class="docs-footer-logo-img">
+            <span class="docs-footer-logo-text">CC3PO</span>
+          </div>
+          <p class="docs-footer-tagline">Safe, Compliant, and Fast — Done For You.</p>
+          <p class="footer-certifications">🏛️ CA Certified Small Business — SB #2052063 · 🌎 Latino-Owned Business · 🌐 Se habla español</p>
         </div>
-        <div class="docs-footer-links" style="margin-top: 8px;">
-          <a href="https://cc3po.com">Main Site</a>
-          <a href="https://offers.cc3po.com">Services</a>
-          <a href="https://insights.cc3po.com">Blog</a>
-          <a href="https://audit.cc3po.com">Free Audit</a>
-          <a href="https://pricing.cc3po.com">Pricing</a>
-          <a href="https://status.cc3po.com">Status</a>
+
+        <div class="docs-footer-columns">
+          <div class="docs-footer-col">
+            <h4 class="docs-footer-col-title">Documentation</h4>
+            <a href="/">Knowledge Base</a>
+            <a href="/guides/agent-system/client-guide">Getting Started</a>
+            <a href="/guides/wordpress/wordpress-setup">WordPress Guides</a>
+            <a href="/guides/ai/ai-automation-workflows">AI & Automation</a>
+            <a href="/guides/agent-system/faq">FAQ</a>
+          </div>
+          <div class="docs-footer-col">
+            <h4 class="docs-footer-col-title">Services</h4>
+            <a href="https://cc3po.com" target="_blank" rel="noopener">Main Site ↗</a>
+            <a href="https://offers.cc3po.com" target="_blank" rel="noopener">Services & Pricing ↗</a>
+            <a href="https://audit.cc3po.com" target="_blank" rel="noopener">Free Website Audit ↗</a>
+            <a href="https://pricing.cc3po.com" target="_blank" rel="noopener">Pricing ↗</a>
+            <a href="https://status.cc3po.com" target="_blank" rel="noopener">System Status ↗</a>
+          </div>
+          <div class="docs-footer-col">
+            <h4 class="docs-footer-col-title">Company</h4>
+            <a href="https://cc3po.com/about/" target="_blank" rel="noopener">About ↗</a>
+            <a href="https://insights.cc3po.com" target="_blank" rel="noopener">Blog ↗</a>
+            <a href="https://stories.cc3po.com" target="_blank" rel="noopener">Stories ↗</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/disclaimer">Disclaimer</a>
+          </div>
         </div>
-        <div class="docs-social">
-          <a href="https://linkedin.com/company/cc3potechnology" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://x.com/IiiCabrales" target="_blank" rel="noopener" aria-label="X / Twitter">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l11.733 16h4.267l-11.733-16z"/><path d="M4 20l6.768-6.768m2.46-2.46L20 4"/></svg>
-          </a>
-          <a href="https://instagram.com/carloscbrls" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61569885474429" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="https://www.tiktok.com/@carlos.a.k.ac3" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13a8.28 8.28 0 005.58 2.16V11.7a4.79 4.79 0 01-3.77-1.77z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@carloscbrls" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </a>
+
+        <div class="docs-footer-bottom">
+          <div class="docs-footer-bottom-row">
+            <p>© {new Date().getFullYear()} CC3PO LLC. All rights reserved. · 16299 Adobe Way, Lathrop, CA 95330</p>
+            <div class="docs-social">
+              <a href="https://linkedin.com/company/cc3potechnology" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://x.com/IiiCabrales" target="_blank" rel="noopener" aria-label="X / Twitter">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4l11.733 16h4.267l-11.733-16z"/><path d="M4 20l6.768-6.768m2.46-2.46L20 4"/></svg>
+              </a>
+              <a href="https://instagram.com/carloscbrls" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61569885474429" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@carlos.a.k.ac3" target="_blank" rel="noopener" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13a8.28 8.28 0 005.58 2.16V11.7a4.79 4.79 0 01-3.77-1.77z"/></svg>
+              </a>
+              <a href="https://www.youtube.com/@carloscbrls" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
 
     <CookieBanner />
 
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M3 12h18M3 6h18M3 18h18"/>
-      </svg>
-    </button>
-
+    <!-- Mobile Menu Button is now in topbar -->
     <!-- Sidebar Overlay -->
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 

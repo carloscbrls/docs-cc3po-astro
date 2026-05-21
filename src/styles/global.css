@@ -1188,7 +1188,7 @@ button, a {
 .main-content h5 {
   font-size: 1rem;
   font-weight: 600;
-  color: #b0bec5;
+  color: #d4d4d8;
   margin: 1.25rem 0 0.4rem;
   line-height: 1.4;
 }
@@ -1196,7 +1196,7 @@ button, a {
 .main-content h6 {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #8892a4;
+  color: #d4d4d8;
   margin: 1.25rem 0 0.4rem;
   line-height: 1.4;
   text-transform: uppercase;
@@ -1206,7 +1206,7 @@ button, a {
 .main-content p {
   font-size: 1rem;
   line-height: 1.75;
-  color: #b0bec5;
+  color: #d4d4d8;
   margin: 0 0 1.25rem;
 }
 
@@ -1236,7 +1236,7 @@ button, a {
 .main-content ol {
   margin: 0 0 1.25rem;
   padding-left: 1.75rem;
-  color: #b0bec5;
+  color: #d4d4d8;
 }
 
 .main-content ul {
@@ -1371,7 +1371,7 @@ button, a {
 .main-content tbody td {
   padding: 0.65rem 1rem;
   border-bottom: 1px solid #1f1f2e;
-  color: #b0bec5;
+  color: #d4d4d8;
 }
 
 .main-content tbody tr:hover {
@@ -1433,7 +1433,7 @@ button, a {
   background: rgba(233, 69, 96, 0.08);
   border: 1px solid rgba(233, 69, 96, 0.25);
   border-left: 4px solid #e94560;
-  color: #b0bec5;
+  color: #d4d4d8;
 }
 
 .main-content .callout.tip strong,
@@ -1446,7 +1446,7 @@ button, a {
   background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.25);
   border-left: 4px solid #f59e0b;
-  color: #b0bec5;
+  color: #d4d4d8;
 }
 
 .main-content .callout.warning strong,
@@ -1459,7 +1459,7 @@ button, a {
   background: rgba(212, 175, 55, 0.08);
   border: 1px solid rgba(212, 175, 55, 0.25);
   border-left: 4px solid #e94560;
-  color: #b0bec5;
+  color: #d4d4d8;
 }
 
 .main-content .callout.note strong,
@@ -1472,7 +1472,7 @@ button, a {
   background: rgba(247, 37, 133, 0.08);
   border: 1px solid rgba(247, 37, 133, 0.25);
   border-left: 4px solid #f72585;
-  color: #b0bec5;
+  color: #d4d4d8;
 }
 
 .main-content .callout.danger strong,

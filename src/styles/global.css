@@ -235,7 +235,7 @@
   --accent-secondary: #f72585;
   --text-primary: #ffffff;
   --text-secondary: #a0a4b8;
-  --text-muted: #6b6b75;
+  --text-muted: #a1a1aa;
   --border: #1f1f2e;
   --code-bg: #0f0f18;
   --success: #22c55e;
@@ -574,7 +574,7 @@ body {
   min-width: 0;
 }
 
-.card-content h3 {
+.card-content h2 {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);

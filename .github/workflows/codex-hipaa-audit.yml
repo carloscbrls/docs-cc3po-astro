@@ -26,7 +26,7 @@ jobs:
           output-file: hipaa-audit-report.md
 
       - name: Upload Audit Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: hipaa-audit-report
           path: hipaa-audit-report.md

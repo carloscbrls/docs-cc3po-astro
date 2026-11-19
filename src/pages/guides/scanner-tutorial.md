@@ -139,7 +139,7 @@ If you want help fixing the issues the scanner found, CC3PO offers three monitor
 |------|-------|----------|-------------|
 | **Shield** | $97/mo | Small businesses starting compliance | WCAG scan, privacy audit, cookie detection, SEO basics, security headers, monthly reports |
 | **Fortress** | $247/mo | Growing businesses needing ongoing monitoring | Everything in Shield + auto-fix patches, weekly monitoring, email alerts on regressions, priority support, PDF reports |
-| **Citadel** | $497/mo | Established businesses with strict requirements | Everything in Fortress + daily monitoring, industry-specific compliance packs, dedicated advisor, white-label reports, SLA guarantee |
+| **Citadel** | Custom, from $597 | Regulated businesses that need a quoted plan | Everything in Fortress + daily monitoring, industry-specific compliance packs, dedicated advisor, white-label reports, and a response-time SLA |
 
 Click the plan button to go through Stripe checkout. All plans include a free scan — no credit card required to start.
 
@@ -158,7 +158,7 @@ Your overall score is a weighted average across all 7 categories. Here's how to 
 
 ### Why Compliance Matters
 
-- **Accessibility** — Laws like the ADA (US) and EAA (EU) require websites to be usable by people with disabilities. Non-compliance can lead to demand letters and lawsuits.
+- **Accessibility** — We check your site against WCAG 2.2 AA. Continuous WCAG 2.2 AA monitoring and documentation that helps you reduce legal risk.
 - **Privacy** — Regulations like CCPA and GDPR require clear disclosure of data practices. Violations carry heavy fines.
 - **Security** — A breach or vulnerability can cost your business thousands in damages and lost trust.
 - **SEO** — Poor SEO means fewer customers find you on Google.

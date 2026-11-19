@@ -13,7 +13,7 @@ navOrder: 10
 
 ## Why Compliance Matters
 
-If your website isn't compliant, you're exposed. ADA lawsuits over web accessibility are up 300% since 2018. Privacy regulations like CCPA and GDPR carry real fines. Security vulnerabilities get exploited every day.
+Continuous WCAG 2.2 AA monitoring and documentation that helps you reduce legal risk. A free scan shows where your site stands today. Privacy and security checks help you catch issues before they grow.
 
 The problem isn't knowing you need compliance — it's finding the time and expertise to stay on top of it. That's where CC3PO comes in.
 
@@ -21,7 +21,7 @@ The problem isn't knowing you need compliance — it's finding the time and expe
 
 Every CC3PO plan starts with a **free scan** — no credit card, no commitment. Just see where you stand.
 
-[SCREENSHOT: Free audit scan page at audit.cc3po.com showing URL input and email field]
+[SCREENSHOT: Free audit scan page at cc3po.com/audit/ showing URL input and email field]
 
 ---
 
@@ -31,7 +31,7 @@ CC3PO offers three compliance monitoring plans, each designed for a different si
 
 | | **Shield** | **Fortress** | **Citadel** |
 |---|---|---|---|
-| **Price** | $97/mo | $247/mo | $497/mo |
+| **Price** | $97/mo | $247/mo | Custom, from $597 |
 | **Monitoring** | Monthly | Weekly | Daily |
 | **WCAG Compliance Scan** | ✅ | ✅ | ✅ |
 | **Privacy Policy Audit** | ✅ | ✅ | ✅ |
@@ -46,7 +46,7 @@ CC3PO offers three compliance monitoring plans, each designed for a different si
 | **Industry-Specific Packs** | — | — | ✅ |
 | **Dedicated Compliance Advisor** | — | — | ✅ |
 | **White-Label Reports** | — | — | ✅ |
-| **SLA Guarantee** | — | — | ✅ |
+| **Response-time SLA** | — | — | ✅ |
 | **Free Scan** | ✅ | ✅ | ✅ |
 | **Credit Card Required** | No | No | No |
 
@@ -62,7 +62,7 @@ Shield gives you a clear picture of your compliance health every month. Think of
 
 ### What's Included
 
-- **WCAG Compliance Scan** — We check your website against WCAG 2.1 AA standards (the most common accessibility benchmark referenced in ADA lawsuits). You'll see exactly which pages have issues and what they are.
+- **WCAG Compliance Scan** — We check your website against WCAG 2.2 AA standards. You'll see exactly which pages have issues and what they are.
 - **Privacy Policy Audit** — We review your privacy policy for gaps against CCPA, GDPR, and state-level privacy laws. If it's missing required disclosures, you'll know.
 - **Cookie & Tracker Detection** — We scan for cookies, tracking pixels, and third-party scripts on your site. Know what's tracking your visitors — before a regulator asks.
 - **SEO Basics Check** — Missing meta descriptions? Broken headings? Duplicate content? We flag the SEO fundamentals that affect your search rankings.
@@ -99,7 +99,7 @@ Fortress is our most popular plan. It takes everything Shield does and adds the 
 ### Who Fortress Is For
 
 - Businesses with 50–500 pages
-- Companies that have been threatened with or received an ADA demand letter
+- Companies that want faster alerts and help applying fixes
 - Businesses that don't have a dedicated web developer on staff
 - Anyone who wants compliance issues fixed, not just found
 - Marketing agencies managing multiple client sites
@@ -126,11 +126,11 @@ For issues that require design decisions (like color contrast or custom widget b
 
 ---
 
-## Citadel — $497/month
+## Citadel — Custom, from $597
 
 **For organizations that can't afford to be non-compliant.**
 
-Citadel is our enterprise-grade plan. It's for businesses where compliance isn't optional — it's a requirement. Healthcare providers, financial services, government contractors, and companies under legal scrutiny choose Citadel.
+Citadel is our custom plan for regulated businesses. Healthcare providers, financial services, government contractors, and other organizations that need a quoted plan start here.
 
 ### What's Included (Everything in Fortress, Plus)
 
@@ -143,14 +143,14 @@ Citadel is our enterprise-grade plan. It's for businesses where compliance isn't
   - **E-Commerce** — PCI DSS surface checks, checkout accessibility, pricing disclosure requirements
 - **Dedicated Compliance Advisor** — You get a real person who knows your site, your industry, and your compliance history. They proactively reach out when regulations change, when new vulnerabilities are discovered, or when your scan results shift. Not a chatbot — a specialist.
 - **White-Label Reports** — Need compliance reports under your own brand for clients or stakeholders? Citadel reports can be fully white-labeled with your logo, colors, and company name.
-- **SLA Guarantee** — We commit to specific response and resolution times. If we miss them, you get a credit. That's how seriously we take this.
+- **Response-time SLA** — We commit to specific response and resolution times. If we miss them, you get a credit. This is a support-response commitment, not a guarantee of legal compliance.
 
 ### Who Citadel Is For
 
 - Healthcare providers and hospitals
 - Financial services and insurance companies
 - Government contractors and public sector organizations
-- Businesses under active compliance scrutiny or legal proceedings
+- Regulated businesses that need a quoted custom plan
 - Agencies managing compliance for high-profile clients
 - Companies with 500+ pages or complex web applications
 
@@ -176,9 +176,9 @@ Getting started takes about 5 minutes. Here's the full flow:
 
 ### Step 1: Run Your Free Scan
 
-Go to [audit.cc3po.com](https://audit.cc3po.com) and enter your website URL and email address. We'll scan your site for free — no credit card required.
+Go to [cc3po.com/audit/](https://cc3po.com/audit/) and enter your website URL and email address. We'll scan your site for free — no credit card required.
 
-[SCREENSHOT: Free scan form at audit.cc3po.com with URL and email fields]
+[SCREENSHOT: Free scan form at cc3po.com/audit/ with URL and email fields]
 
 ### Step 2: Review Your Results
 
@@ -192,7 +192,7 @@ Based on your results, we'll recommend a plan. But the choice is always yours:
 
 - **Just want to know where you stand?** Shield gives you monthly visibility at the lowest price.
 - **Want us to find and fix issues?** Fortress is the best value for most businesses.
-- **Can't afford non-compliance?** Citadel gives you daily monitoring, industry expertise, and guaranteed response times.
+- **Need a quoted plan for a regulated business?** Citadel starts at $597 and is scoped to your requirements, with daily monitoring, industry expertise, and a response-time SLA.
 
 You can also compare plans at [cc3po.com/pricing](https://cc3po.com/pricing).
 
@@ -329,10 +329,10 @@ Not currently, but contact us if you're interested in annual billing — we're h
 ### Compliance-Specific
 
 **Does this make my website legally compliant?**
-No tool can guarantee legal compliance — any service that claims otherwise is being dishonest. What CC3PO does is identify compliance gaps, help you fix them, and keep you informed about changes. Compliance is an ongoing process, not a one-time checkbox. We make that process manageable.
+No. CC3PO is not a law firm and does not provide legal advice. Our monitoring, fixes, and reports help reduce accessibility and privacy risk, but no service can guarantee compliance or prevent a claim. If you've received a demand letter, talk to a licensed attorney.
 
 **What compliance standards do you check against?**
-- **Accessibility:** WCAG 2.1 AA (the standard most commonly referenced in ADA legal actions)
+- **Accessibility:** WCAG 2.2 AA
 - **Privacy:** CCPA, GDPR, state-level privacy laws
 - **Security:** OWASP top 10 security headers, TLS configuration
 - **SEO:** Core web vitals, meta tags, structured data, crawlability
@@ -366,4 +366,4 @@ We typically respond within one business day. For urgent compliance matters, cal
 
 ---
 
-*CC3PO — Compliance you can count on. [Get your free scan →](https://audit.cc3po.com)*
+*CC3PO — Continuous WCAG 2.2 AA monitoring starts today. [Get your free scan →](https://cc3po.com/audit/)*

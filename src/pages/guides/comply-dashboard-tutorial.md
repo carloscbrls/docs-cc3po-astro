@@ -82,7 +82,7 @@ This is the big number at the top — your **Living Compliance Score**. It repre
 Your Living Compliance Score isn't a one-time snapshot — it's a **living metric** that updates every time we scan your website.
 
 **How it works:**
-- We scan your website on a regular schedule (weekly for Shield, more frequently for Fortress and Citadel plans)
+- We scan your website on a regular schedule (monthly for Shield, more frequently for Fortress and Citadel plans)
 - Each scan checks your pages against WCAG 2.2 AA standards
 - Your score goes up as you fix issues, and down if new violations appear
 - The score reflects your **current** compliance posture, not a historical average
@@ -90,7 +90,7 @@ Your Living Compliance Score isn't a one-time snapshot — it's a **living metri
 **Why it matters:**
 - A high, steady score means you're maintaining compliance — not just fixing things after a complaint
 - If your score drops, you'll see exactly what changed and can act fast
-- Documented, improving scores are your best defense in the event of an ADA lawsuit
+- Documented, improving scores help you show ongoing WCAG 2.2 AA monitoring. They do not guarantee compliance or prevent a claim.
 
 [SCREENSHOT: The Living Compliance Score trend chart over time]
 
@@ -128,9 +128,9 @@ Your dashboard shows which CC3PO plan you're on:
 
 | Plan | What's Included | Price |
 |------|----------------|-------|
-| **Shield** | Weekly scans, instant alerts, weekly PDF reports | $97/mo |
-| **Fortress** | Daily scans, priority alerts, detailed reports, remediation guidance | $247/mo |
-| **Citadel** | Real-time monitoring, custom standards, dedicated support | $497/mo |
+| **Shield** | Monthly scans, alerts, monthly PDF reports | $97/mo |
+| **Fortress** | Weekly scans, priority alerts, detailed reports, remediation guidance | $247/mo |
+| **Citadel** | Daily monitoring, custom standards, dedicated support | Custom, from $597 |
 
 [SCREENSHOT: The plan status section showing current plan details]
 
@@ -159,9 +159,9 @@ When you open a specific scan, you'll see:
 
 [SCREENSHOT: An individual scan report detail view]
 
-### Weekly PDF Reports
+### Monthly PDF Reports
 
-If you're on the Shield plan (or higher), you also receive a **weekly PDF report** delivered to your email. This report summarizes:
+If you're on the Shield plan, you also receive a **monthly PDF report** delivered to your email. Higher-tier plans can include more frequent reports. This report summarizes:
 
 - Your current compliance score
 - New issues found this week
@@ -200,7 +200,7 @@ Your dashboard includes a **trend chart** showing how your score has changed acr
 
 - See if your compliance is trending upward (great job!)
 - Spot sudden drops that need immediate attention
-- Demonstrate ongoing compliance efforts (important for legal protection)
+- Demonstrate ongoing monitoring and documentation that helps you reduce legal risk
 
 [SCREENSHOT: The compliance score trend chart]
 
@@ -242,9 +242,9 @@ First, check your spam or junk folder. Make sure you entered the correct email. 
 
 ### How often is my website scanned?
 
-- **Shield** — Weekly scans
-- **Fortress** — Daily scans
-- **Citadel** — Continuous monitoring with real-time alerts
+- **Shield** — Monthly scans
+- **Fortress** — Weekly scans
+- **Citadel** — Daily monitoring with real-time alerts
 
 ### What compliance standards do you check?
 
@@ -265,7 +265,7 @@ Fix the issues listed in your dashboard, starting with the most critical ones. E
 
 ### Can I download my scan reports?
 
-Yes. PDF reports are available in the Scan History section of your dashboard. Shield customers also receive weekly reports by email.
+Yes. PDF reports are available in the Scan History section of your dashboard. Shield customers also receive monthly reports by email.
 
 ### How do I upgrade my plan?
 

@@ -128,9 +128,9 @@ Your dashboard shows which CC3PO plan you're on:
 
 | Plan | What's Included | Price |
 |------|----------------|-------|
-| **Shield** | Weekly scans, instant alerts, weekly PDF reports | $97/mo |
-| **Fortress** | Daily scans, priority alerts, detailed reports, remediation guidance | $247/mo |
-| **Citadel** | Real-time monitoring, custom standards, dedicated support | $497/mo |
+| **Shield** | Weekly scans, instant alerts, weekly PDF reports | $297/mo |
+| **Fortress** | Daily scans, priority alerts, detailed reports, remediation guidance | $447/mo |
+| **Citadel** | Real-time monitoring, custom standards, dedicated support | $897/mo |
 
 [SCREENSHOT: The plan status section showing current plan details]
 

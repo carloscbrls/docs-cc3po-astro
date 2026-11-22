@@ -31,7 +31,7 @@ CC3PO offers three compliance monitoring plans, each designed for a different si
 
 | | **Shield** | **Fortress** | **Citadel** |
 |---|---|---|---|
-| **Price** | $97/mo | $247/mo | $497/mo |
+| **Price** | $297/mo | $447/mo | $897/mo |
 | **Monitoring** | Monthly | Weekly | Daily |
 | **WCAG Compliance Scan** | ✅ | ✅ | ✅ |
 | **Privacy Policy Audit** | ✅ | ✅ | ✅ |
@@ -54,7 +54,7 @@ CC3PO offers three compliance monitoring plans, each designed for a different si
 
 ---
 
-## Shield — $97/month
+## Shield — $297/month
 
 **For small businesses that need to know where they stand.**
 
@@ -82,7 +82,7 @@ Shield finds problems — it doesn't fix them. If you want CC3PO to automaticall
 
 ---
 
-## Fortress — $247/month
+## Fortress — $447/month
 
 **For growing businesses that want problems found **and** fixed.**
 
@@ -126,7 +126,7 @@ For issues that require design decisions (like color contrast or custom widget b
 
 ---
 
-## Citadel — $497/month
+## Citadel — $897/month
 
 **For organizations that can't afford to be non-compliant.**
 

@@ -137,9 +137,9 @@ If you want help fixing the issues the scanner found, CC3PO offers three monitor
 
 | Plan | Price | Best For | Key Features |
 |------|-------|----------|-------------|
-| **Shield** | $97/mo | Small businesses starting compliance | WCAG scan, privacy audit, cookie detection, SEO basics, security headers, monthly reports |
-| **Fortress** | $247/mo | Growing businesses needing ongoing monitoring | Everything in Shield + auto-fix patches, weekly monitoring, email alerts on regressions, priority support, PDF reports |
-| **Citadel** | $497/mo | Established businesses with strict requirements | Everything in Fortress + daily monitoring, industry-specific compliance packs, dedicated advisor, white-label reports, SLA guarantee |
+| **Shield** | $297/mo | Small businesses starting compliance | WCAG scan, privacy audit, cookie detection, SEO basics, security headers, monthly reports |
+| **Fortress** | $447/mo | Growing businesses needing ongoing monitoring | Everything in Shield + auto-fix patches, weekly monitoring, email alerts on regressions, priority support, PDF reports |
+| **Citadel** | $897/mo | Established businesses with strict requirements | Everything in Fortress + daily monitoring, industry-specific compliance packs, dedicated advisor, white-label reports, SLA guarantee |
 
 Click the plan button to go through Stripe checkout. All plans include a free scan — no credit card required to start.
 

@@ -30,7 +30,7 @@ robots: noindex, nofollow
 | Tier | Priority | Call Within |
 |------|----------|-------------|
 | Full ($297) | 🔴 HOT | 24 hours |
-| Monitoring ($97/mo) | 🔴 HOT | 24 hours |
+| Monitoring ($297/mo) | 🔴 HOT | 24 hours |
 | Free | 🟡 WARM | 48 hours |
 
 ---

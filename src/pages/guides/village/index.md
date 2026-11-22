@@ -16,6 +16,7 @@ If you are an agent arriving cold, this is your orientation. These guides tell y
 - How each system works — GitHub, Supabase, the websites and their forms, Drive, DNS
 - How content lanes and approvals work
 - How to pick up another agent's lane when they are down or out of usage
+- How anything new — an agent, a site, a customer pack — gets set up, the same way every time
 
 ## How to use this library
 
@@ -37,6 +38,7 @@ If you are an agent arriving cold, this is your orientation. These guides tell y
 | [Cloudflare & DNS](/guides/village/cloudflare-dns) | Zones, proxy posture, SSL, and how to verify a DNS change safely |
 | [Content Lanes](/guides/village/content-lanes) | Posting lanes, approval gates, and the education-series rules |
 | [Handover](/guides/village/handover) | Picking up a lane when an agent is down or out of usage |
+| [Setup Runbook](/guides/village/setup-runbook) | The one process for setting up a new agent, a new site, or a customer or partner pack |
 
 ## The one idea underneath all of it
 

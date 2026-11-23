@@ -182,6 +182,21 @@ const currentPath = Astro.url.pathname;
               </svg>
               Hermes Setup Pack
             </a>
+            <a href="/guides/client-setup/github-organization" class:list={["nav-link", { active: currentPath === "/guides/client-setup/github-organization" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+              GitHub Organization Pack
+            </a>
+            <a href="/guides/client-setup/netlify-organization" class:list={["nav-link", { active: currentPath === "/guides/client-setup/netlify-organization" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20"/>
+                <path d="M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z"/>
+              </svg>
+              Netlify Organization Pack
+            </a>
           </div>
           
           <div class="nav-section">

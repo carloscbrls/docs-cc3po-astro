@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Activity — CC3PO (Demo)</title>
+<style>
+  :root{
+    --navy:#0b1f3a;
+    --navy-2:#12294d;
+    --gold:#c9a227;
+    --gold-soft:#e8d48a;
+    --ink:#1c2430;
+    --muted:#5b6572;
+    --line:#e3e6ec;
+    --bg:#f5f6f8;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  /* Sample watermark ribbon */
+  .sample-ribbon{
+    background:var(--gold);
+    color:var(--navy);
+    text-align:center;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:.78rem;
+    padding:.5rem 1rem;
+  }
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+    color:#fff;
+    padding:2.2rem 1.25rem 1.8rem;
+    border-bottom:4px solid var(--gold);
+  }
+  .wrap{max-width:760px;margin:0 auto}
+  .brand{
+    color:var(--gold-soft);
+    font-weight:800;
+    letter-spacing:.22em;
+    font-size:.8rem;
+    text-transform:uppercase;
+    margin-bottom:.4rem;
+  }
+  header h1{font-size:1.7rem;font-weight:800;line-height:1.2}
+  header p{color:#c8d2e0;margin-top:.45rem;max-width:56ch}
+  .how-it-works{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:10px;
+    padding:1rem 1.15rem;
+    margin:1.25rem auto 0;
+    font-size:.95rem;
+    color:var(--ink);
+  }
+  .how-it-works strong{color:var(--navy)}
+  .workspace{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:1rem 1.15rem;
+    margin:1rem auto 0;
+    font-size:.95rem;
+  }
+  .workspace h3{color:var(--navy);font-size:1rem;margin-bottom:.5rem}
+  .workspace ul{list-style:none}
+  .workspace li{padding:.35rem 0;border-bottom:1px solid var(--line)}
+  .workspace li:last-child{border-bottom:none}
+  .workspace .fname{font-weight:700;color:var(--navy)}
+  .workspace .fnote{color:var(--muted)}
+  main{padding:0 1.25rem 3rem}
+  .day{margin-top:2rem}
+  .day h2{
+    font-size:.85rem;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--muted);
+    border-bottom:2px solid var(--line);
+    padding-bottom:.4rem;
+    margin-bottom:1rem;
+  }
+  .entry{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:1rem 1.15rem;
+    margin-bottom:.8rem;
+    display:flex;
+    gap:.9rem;
+    align-items:flex-start;
+  }
+  .avatar{
+    flex:0 0 auto;
+    width:44px;height:44px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--gold-soft);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:1.05rem;
+    border:2px solid var(--gold);
+  }
+  .entry-body{flex:1 1 auto;min-width:0}
+  .entry-top{
+    display:flex;flex-wrap:wrap;gap:.45rem .6rem;align-items:baseline;
+  }
+  .agent{font-weight:700;color:var(--navy)}
+  .role{color:var(--muted);font-size:.88rem}
+  .time{margin-left:auto;color:var(--muted);font-size:.85rem;white-space:nowrap}
+  .summary{margin-top:.3rem;font-size:.98rem}
+  .tags{margin-top:.55rem;display:flex;flex-wrap:wrap;gap:.4rem}
+  .tag{
+    font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    padding:.18rem .55rem;border-radius:999px;border:1px solid var(--line);
+    color:var(--muted);background:#fafbfc;
+  }
+  .tag.cat-work{color:#7a5b00;border-color:var(--gold-soft);background:#fdf6dd}
+  .tag.cat-look{color:#33506e;background:#eef3f9}
+  .tag.cat-decision{color:#5b3a75;background:#f3eef9}
+  .tag.cat-deliverable{color:#1d5c38;background:#e9f5ee}
+  .tag.status-done{color:#1d5c38}
+  .tag.status-progress{color:#7a5b00}
+  .tag.status-waiting{color:#8a3b12;border-color:#eec39a;background:#fdf0e4}
+  .entry a{color:var(--navy);font-weight:600;text-decoration-color:var(--gold);text-underline-offset:2px}
+  footer{
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:.88rem;
+    padding:1.4rem 1.25rem 2.2rem;
+    text-align:center;
+  }
+  footer .sample-note{font-weight:700;color:#8a6d00;text-transform:uppercase;letter-spacing:.08em;font-size:.75rem;margin-bottom:.4rem}
+</style>
+</head>
+<body>
+
+<div class="sample-ribbon">Sample output — this is what the process generates on the client's computer. Demo for review, not a live page.</div>
+
+<header>
+  <div class="wrap">
+    <div class="brand">CC3PO</div>
+    <h1>Your activity — watch it work</h1>
+    <p>Everything your agent team has done, looked at, or delivered — written down as it happens, in plain language. This page lives in the workspace on <strong>your own computer</strong> and reads straight from your own files. Newest first. Times are Pacific.</p>
+    <div class="how-it-works">
+      <strong>How this page works:</strong> each entry is written by the agent who did the work, at the moment the work happens, into the CHANGE LOG in your workspace — the same discipline our own team runs on. This page is generated from that log: it's the output of the process, not a separate report someone writes later. If it's not on this page, it hasn't happened yet. And there's exactly one living version of every document — the one marked CURRENT — so you never have to wonder which version is real.
+    </div>
+    <div class="workspace">
+      <h3>Your workspace — right here on your computer</h3>
+      <ul>
+        <li><span class="fname">README</span> — <span class="fnote">what this workspace is and how to read it</span></li>
+        <li><span class="fname">CHANGE LOG</span> — <span class="fnote">one timestamped line for every action; this page reads it</span></li>
+        <li><span class="fname">02 Working</span> — <span class="fnote">the live work, in documents marked — CURRENT</span></li>
+        <li><span class="fname">03 Deliverables</span> — <span class="fnote">finished work, ready for you</span></li>
+        <li><span class="fname">04 Notes &amp; Handoffs</span> — <span class="fnote">handoffs written where the work lives</span></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="day">
+      <h2>Saturday, November 21, 2026</h2>
+
+      <article class="entry">
+        <div class="avatar">N</div>
+        <div class="entry-body">
+          <div class="entry-top">
+            <span class="agent">Nivel</span>
+            <span class="role">Music engineering</span>
+            <span class="time">6:42 PM PT</span>
+          </div>
+          <p class="summary">Finished the second mastered version of all 12 album tracks — sound effects blended in, volume matched across the whole album so it plays evenly start to finish. Sent to you for a listen.</p>
+          <div class="tags">
+            <span class="tag cat-deliverable">Deliverable</span>
+            <span class="tag status-done">Done</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="avatar">V</div>
+        <div class="entry-body">
+          <div class="entry-top">
+            <span class="agent">Voz</span>
+            <span class="role">Content</span>
+            <span class="time">10:18 AM PT</span>
+          </div>
+          <p class="summary">Published the album launch post to your Instagram and Facebook with the cover art, and scheduled this week's three short story posts to follow it.</p>
+          <div class="tags">
+            <span class="tag cat-work">Work done</span>
+            <span class="tag status-done">Done</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="avatar">M</div>
+        <div class="entry-body">
+          <div class="entry-top">
+            <span class="agent">Muse</span>
+            <span class="role">Coordination</span>
+            <span class="time">9:05 AM PT</span>
+          </div>
+          <p class="summary">Checked the release checklist for next week's wide release (Spotify and Apple). Everything is ready except the final track listing sign-off — that's the one item waiting on you.</p>
+          <div class="tags">
+            <span class="tag cat-look">Looked at</span>
+            <span class="tag status-waiting">Waiting on you</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="day">
+      <h2>Friday, November 20, 2026</h2>
+
+      <article class="entry">
+        <div class="avatar">C</div>
+        <div class="entry-body">
+          <div class="entry-top">
+            <span class="agent">Coda</span>
+            <span class="role">Finance</span>
+            <span class="time">4:15 PM PT</span>
+          </div>
+          <p class="summary">Reconciled this month's payments and subscriptions. Everything matches; one duplicate charge from a vendor was flagged and a refund request sent.</p>
+          <div class="tags">
+            <span class="tag cat-work">Work done</span>
+            <span class="tag status-done">Done</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="avatar">L</div>
+        <div class="entry-body">
+          <div class="entry-top">
+            <span class="agent">Lumen</span>
+            <span class="role">Research</span>
+            <span class="time">1:30 PM PT</span>
+          </div>
+          <p class="summary">Researched current market pricing for the services on your plan and compared it line by line against what you're paying. Summary: your rates are in line with the market; two items could be renegotiated at renewal.</p>
+          <div class="tags">
+            <span class="tag cat-look">Looked at</span>
+            <span class="tag status-done">Done</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="avatar">L</div>
+        <div class="entry-body">
+          <div class="entry-top">
+            <span class="agent">Lumen</span>
+            <span class="role">Research</span>
+            <span class="time">2:20 PM PT</span>
+          </div>
+          <p class="summary">Added today's pricing findings to the one living research document — "Pricing Research — CURRENT" — and wrote the matching line in your CHANGE LOG with the time, so anyone can see exactly what changed and when. The older dated copies are snapshots for the record; nobody works from them.</p>
+          <div class="tags">
+            <span class="tag cat-work">Work done</span>
+            <span class="tag status-done">Done</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="avatar">Q</div>
+        <div class="entry-body">
+          <div class="entry-top">
+            <span class="agent">Quill</span>
+            <span class="role">Writing</span>
+            <span class="time">11:02 AM PT</span>
+          </div>
+          <p class="summary">Drafted next week's article from this week's work notes. It's with Carlos for a final read before it goes live — nothing publishes without his sign-off.</p>
+          <div class="tags">
+            <span class="tag cat-work">Work done</span>
+            <span class="tag status-progress">In progress</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="avatar">M</div>
+        <div class="entry-body">
+          <div class="entry-top">
+            <span class="agent">Muse</span>
+            <span class="role">Coordination</span>
+            <span class="time">8:47 AM PT</span>
+          </div>
+          <p class="summary">Decision logged: this week's posts lead with the album story rather than the announcement, because last week's numbers showed people respond to the story. Friday's report will show whether it worked.</p>
+          <div class="tags">
+            <span class="tag cat-decision">Decision</span>
+            <span class="tag status-done">Done</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="sample-note">Sample output — demo</div>
+  <p>Questions about anything on this page? Reply to Carlos directly — a person reads every message.<br>
+  This page runs from the workspace on your own computer — your files, your record.<br>
+  CC3PO · Activity page (pilot design)</p>
+</footer>
+
+</body>
+</html>

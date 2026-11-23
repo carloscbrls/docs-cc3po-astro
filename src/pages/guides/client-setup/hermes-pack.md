@@ -113,6 +113,7 @@ The activity page is **not** the system — it is a rendering of the system, gen
 - **Keep it current:** regenerate it whenever the CHANGE LOG changes (or on a short fixed cadence — pick one, write which in the workspace README, and hold to it).
 - **It adds nothing and hides nothing.** The page is a readable view of files the client owns; the raw CHANGE LOG sits next to it and the client can open it at any time.
 - **Framing:** the page presents the workspace itself, not just the timeline — the folders, the README, the CURRENT convention — because the process is the point. (A sample of the expected output ships with this pack as `demo.html` — match its structure and plain-language tone; its data is sample data, never copy it into a live workspace.)
+- **Sample output:** [Activity view — sample page](/guides/client-setup/activity-demo/) (sample data only).
 
 ## 7. Verification gates — prove it before you report it
 

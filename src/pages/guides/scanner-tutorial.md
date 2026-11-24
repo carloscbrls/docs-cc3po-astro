@@ -1,4 +1,5 @@
 ---
+layout: '../../layouts/Layout.astro'
 title: "CC3PO Compliance Scanner — Complete Guide"
 description: "Learn how to use the free CC3PO Compliance Scanner to check your website for accessibility, privacy, SEO, speed, and security issues in 30 seconds."
 faq:

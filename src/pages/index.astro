@@ -13,7 +13,7 @@ import Layout from '../layouts/Layout.astro';
         <circle cx="11" cy="11" r="8"/>
         <path d="m21 21-4.35-4.35"/>
       </svg>
-      <input type="text" class="search-input" placeholder="Search for a solution..." id="search-input" />
+      <input type="text" class="search-input" placeholder="Search for a solution..." id="search-input" aria-label="Search" />
       <kbd class="search-kbd">⌘K</kbd>
     </div>
   </div>
@@ -151,6 +151,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="help-cta-content">
         <h2>Can't find what you need?</h2>
         <p>Our team is here to help. Get personalized support for any question about AI automation, WordPress, security, HIPAA compliance, or our services.</p>
+        <p>Rather not do it yourself? <a href="https://cc3po.com/get-started">We can do this for you →</a></p>
       </div>
     </div>
     <form class="help-cta-form" action="https://formspree.io/f/xbdwggel" method="POST">

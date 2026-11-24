@@ -2,6 +2,31 @@
 layout: '../../layouts/Layout.astro'
 title: 'Comply Dashboard Tutorial'
 description: 'Learn how to use the CC3PO Comply Dashboard to monitor your website compliance, view scan history, and track your Living Compliance Score.'
+faq:
+  - question: "How do I log in?"
+    answer: "Visit comply.cc3po.com, enter your email, and click \"Send Magic Link.\" Check your inbox and click the link to sign in. No password required."
+  - question: "What email should I use?"
+    answer: "Use the email address associated with your CC3PO account — the one you signed up with. If you're not sure which email that is, contact us at support@cc3po.com."
+  - question: "I didn't get the magic link. What do I do?"
+    answer: "First, check your spam or junk folder. Make sure you entered the correct email. Then try sending the link again. If it still doesn't arrive, contact support@cc3po.com."
+  - question: "How often is my website scanned?"
+    answer: "- Shield — Weekly scans - Fortress — Daily scans - Citadel — Continuous monitoring with real-time alerts"
+  - question: "What compliance standards do you check?"
+    answer: "We scan against WCAG 2.2 Level AA standards, which cover the majority of ADA and EU EAA compliance requirements for websites."
+  - question: "My score dropped. What happened?"
+    answer: "A score drop means new compliance violations were detected on your website. This can happen when: - You or your team made changes to the website - A plugin or theme update introduced new issues - Content was added without accessibility checks Check the Issues section of your dashboard to see exactly what changed, then follow the recommended fix steps."
+  - question: "How do I improve my compliance score?"
+    answer: "Fix the issues listed in your dashboard, starting with the most critical ones. Each issue includes recommended steps. Once fixed, your next scan will reflect the improvement. If you need help, our team can assist — reach out at support@cc3po.com."
+  - question: "Can I download my scan reports?"
+    answer: "Yes. PDF reports are available in the Scan History section of your dashboard. Shield customers also receive weekly reports by email."
+  - question: "How do I upgrade my plan?"
+    answer: "Contact us at support@cc3po.com or visit cc3po.com/pricing to upgrade to Fortress or Citadel for more frequent scans and advanced features."
+  - question: "How do I cancel?"
+    answer: "You can cancel anytime from your dashboard or by emailing support@cc3po.com. No contracts, no commitment."
+  - question: "Is my data secure?"
+    answer: "Yes. We use industry-standard encryption, don't store passwords (we use magic link authentication), and never share your data with third parties. See the Security & Privacy section above for details."
+  - question: "What does \"Living Compliance Score\" mean?"
+    answer: "It means your score is continuously updated — not a one-time check. Every time we scan your site, your score reflects your current compliance posture. It goes up as you fix issues and down if new violations appear. ---"
 ---
 
 # CC3PO Comply Dashboard Tutorial

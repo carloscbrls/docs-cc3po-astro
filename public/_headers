@@ -1,3 +1,7 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
 /guides/web-excellence/handbook/*
   Basic-Auth: client:cc3po2026
   X-Robots-Tag: noindex, nofollow

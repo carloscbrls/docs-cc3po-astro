@@ -1,0 +1,46 @@
+name: Fleet Audit (in-house)
+
+# Replacement for the retired Codex weekly audits (HIPAA / SEO / Accessibility),
+# which depended on the OpenAI API. This workflow uses only in-house tooling:
+# axe-core for accessibility, scripted checks for SEO + security headers +
+# repository secret hygiene. No external AI vendor, no API keys.
+# The three Codex workflows remain disabled_manually; this is their successor.
+
+on:
+  schedule:
+    # Mondays 16:00 UTC (the old HIPAA audit slot)
+    - cron: '0 16 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fleet-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install audit tooling (ephemeral)
+        run: |
+          npm install --no-save --no-package-lock playwright @axe-core/playwright
+          npx playwright install --with-deps chromium
+
+      - name: Run fleet audit
+        env:
+          BASE_URL: https://docs.cc3po.com
+        run: node scripts/fleet-audit.mjs
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fleet-audit-report
+          path: fleet-audit-report.md
+          if-no-files-found: warn

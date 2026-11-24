@@ -346,7 +346,7 @@ body {
 
 .nav-link.active {
   background: rgba(233, 69, 96, 0.1);
-  color: var(--accent);
+  color: #ef6a87; /* AA-tuned 2026-11-24: accent tint for dark header (was var(--accent) #e94560, 4.46:1) */
 }
 
 .nav-link svg {

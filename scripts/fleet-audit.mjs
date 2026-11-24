@@ -115,8 +115,9 @@ async function axeAudit() {
     return;
   }
   const browser = await chromium.launch();
+  const context = await browser.newContext();
   for (const p of PAGES) {
-    const page = await browser.newPage();
+    const page = await context.newPage();
     try {
       await page.goto(BASE + p, { waitUntil: 'load', timeout: 45000 });
       const res = await new AxeBuilder({ page }).withTags(AXE_TAGS).analyze();

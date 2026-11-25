@@ -360,7 +360,7 @@ Additional revisions can be arranged if needed — just ask.
 
 ### What if I need something faster than the listed timeline?
 
-Reach out to us directly at [stories@cc3po.com](mailto:stories@cc3po.com) or call us at **(209) 232-1265**. We'll do our best to accommodate rush orders, especially for time-sensitive occasions like memorials or milestones.
+Reach out to us directly at [stories@cc3po.com](mailto:stories@cc3po.com) or call us at **(209) 701-1137**. We'll do our best to accommodate rush orders, especially for time-sensitive occasions like memorials or milestones.
 
 ### Do you work in Spanish / other languages?
 
@@ -381,7 +381,7 @@ Absolutely. Many families create a Life Story Book alongside a Personal Song, or
 ### How do I contact you?
 
 - **Email:** [stories@cc3po.com](mailto:stories@cc3po.com)
-- **Phone:** (209) 232-1265
+- **Phone:** (209) 701-1137
 - **Website:** [stories.cc3po.com](https://stories.cc3po.com)
 
 We're a real team, and we respond personally. No chatbots, no hold music — just people who care about your story.

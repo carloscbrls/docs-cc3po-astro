@@ -33,7 +33,7 @@ During onboarding, we created a private Telegram bot just for you. Here's how to
 
 1. Open Telegram
 2. Tap the **search icon** (magnifying glass) at the top
-3. Type your bot name: **@yourbusiness_bot** (we gave you this name in your welcome email)
+3. Type the bot name from your welcome email
 4. Tap on the bot in the search results
 5. Tap **Start**
 
@@ -55,7 +55,7 @@ Your assistant will respond with a list of things it can help with. Try these:
 |----------|-------------|
 | "How many leads came in today?" | Shows your latest leads |
 | "What's my website status?" | Checks your site is online |
-| "Post to Facebook: Spring is here! Book your AC tune-up now." | Posts to your connected social media |
+| "Post to Facebook: Spring is here! Book your appointment now." | Posts to your connected social media |
 | "Send a follow-up to the last lead" | Sends an email follow-up |
 | "What's on my schedule?" | Shows upcoming tasks and posts |
 | "Create a blog post about [topic]" | Drafts a blog post for your review |
@@ -67,7 +67,7 @@ Your assistant will respond with a list of things it can help with. Try these:
 You also have a web dashboard where you can see everything at a glance:
 
 1. Open your browser
-2. Go to: **http://your-server-ip:4080** (we gave you this in your welcome email)
+2. Go to the dashboard address from your welcome email
 3. Enter your auth token (also in your welcome email)
 
 **What you'll see:**
@@ -113,10 +113,10 @@ Send a message in Telegram like you're talking to a person:
 
 **Be specific:**
 - ❌ "Do marketing" → Too vague
-- ✅ "Create 3 Instagram posts about spring HVAC maintenance tips for homeowners"
+- ✅ "Create 3 Instagram posts about spring cleaning tips for busy families"
 
 **Give context:**
-- ✅ "Our audience is homeowners in Sacramento, keep it casual and friendly"
+- ✅ "Our audience is busy parents in the Central Valley, keep it casual and friendly"
 
 **Say what you want:**
 - ✅ "Post this to Facebook and Instagram: [your message]"
@@ -135,7 +135,7 @@ Sometimes your assistant will message YOU:
 | "Your website is down" | Monitoring detected an issue | We're probably already fixing it — no action needed |
 | "New lead from [name]" | Someone filled out your contact form | Review and decide if you want to follow up |
 | "Can you review this post?" | Content needs your approval | Reply "yes" or "change [X]" |
-| "Zernio connection expired" | Social media link needs refresh | We'll help you reconnect — email support@cc3po.com |
+| "Social media connection expired" | Social media link needs refresh | We'll help you reconnect — email support@cc3po.com |
 | "Payment processed" | Your monthly subscription renewed | No action needed |
 
 ---
@@ -186,12 +186,12 @@ When you signed up, you received a welcome email with:
 |------|---------|---------------|
 | General questions | Telegram (ask your assistant) | Immediate |
 | Email support | support@cc3po.com | Within 24 hours |
-| Phone support | (209) 232-1265 | Business hours (M-F 9am-5pm PT) |
+| Phone support | (209) 701-1137 | Business hours (M-F 9am-5pm PT) |
 | Emergency | support@cc3po.com (subject: URGENT) | Within 4 hours |
 
 ---
 
-*Last updated: May 2026*
+*Last updated: November 2026*
 
 ---
 

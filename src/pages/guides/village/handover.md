@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Handover — Picking Up a Lane When an Agent Is Down
 description: How a covering agent takes over a lane using the guides, the CURRENT docs, and the keys they already hold
 navOrder: 10
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Handover

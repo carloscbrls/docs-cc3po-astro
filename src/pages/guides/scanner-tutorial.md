@@ -46,6 +46,8 @@ howto:
       text: "Enter your email address to receive a full report with all issues, explanations, and fix instructions delivered to your inbox. We never spam — you get one report per scan, period. [SCREENSHOT: Email input form for receiving the detailed report]"
     - name: "Choose a Plan (Optional)"
       text: "If you want help fixing the issues the scanner found, CC3PO offers three monitoring and remediation plans: | Plan | Price | Best For | Key Features | |------|-------|----------|-------------| | Shield | $297/mo | Small businesses starting compliance | WCAG scan, privacy audit, cookie detection, SEO basics, security headers, monthly reports | | Fortress | $447/mo | Growing businesses needing ongoin"
+owner: 'CC3PO Compliance'
+reviewBy: '2026-08-29'
 ---
 
 # CC3PO Compliance Scanner — Complete Guide

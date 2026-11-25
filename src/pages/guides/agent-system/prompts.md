@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Prompt Engineering for Agents
 description: How to write effective prompts for AI agents
+owner: 'CC3PO Support'
+reviewBy: '2026-07-29'
 ---
 
 # Prompt Engineering Guide

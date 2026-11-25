@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Start Here — The Village in One Read
 description: What CC3PO and CCFamily are, what the Village is, and the rules that never bend
 navOrder: 2
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Start Here: The Village in One Read

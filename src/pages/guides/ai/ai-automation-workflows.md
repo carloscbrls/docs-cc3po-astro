@@ -1,6 +1,8 @@
 ---
 layout: '../../../layouts/Layout.astro'
 title: AI Automation Workflows
+owner: 'CC3PO Automation'
+reviewBy: '2027-01-25'
 ---
 
 # AI Automation Workflows

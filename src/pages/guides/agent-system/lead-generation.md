@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Lead Generation
 description: How your AI assistant finds and qualifies leads for your business
 navOrder: 14
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # Lead Generation

@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Knowledge Base
 description: Learnings, best practices, and insights from the village
+owner: 'CC3PO Support'
+reviewBy: '2026-07-29'
 ---
 
 # Knowledge Base

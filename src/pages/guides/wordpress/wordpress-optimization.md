@@ -1,6 +1,8 @@
 ---
 layout: '../../../layouts/Layout.astro'
 title: WordPress Performance Optimization
+owner: 'CC3PO Web'
+reviewBy: '2027-01-25'
 ---
 
 # WordPress Performance Optimization

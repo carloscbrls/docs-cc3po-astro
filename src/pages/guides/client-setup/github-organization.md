@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: GitHub Organization Pack — Inventory, Descriptions, and a Profile That Explains Itself
 description: The organization pack for a client-side agent working on the client's own GitHub account — inventory, descriptions and topics, profile README, and a client decision list
+owner: 'CC3PO Delivery'
+reviewBy: '2027-01-25'
 ---
 
 # GitHub Organization Pack — Inventory, Descriptions, and a Profile That Explains Itself

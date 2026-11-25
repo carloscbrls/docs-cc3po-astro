@@ -2,6 +2,8 @@
 layout: '../../layouts/Layout.astro'
 title: "CC3PO Stories — Complete Customer Guide"
 description: "Learn how to use CC3PO Stories to create personal songs, life story books, sensescapes, time capsule letters, living memorials, and dream journals that preserve what matters most."
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # CC3PO Stories — Complete Customer Guide

@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Content Lanes — Posting, Approvals, and the Education Series
 description: The lanes CC3PO content moves in, the approval gate on each, and the rules every post follows
 navOrder: 9
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Content Lanes

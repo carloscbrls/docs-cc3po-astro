@@ -2,6 +2,8 @@
 layout: '../../layouts/Layout.astro'
 title: 'Common Issues'
 description: 'Frequent problems our clients run into and how to resolve them — written in plain language.'
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 <script type="application/ld+json">

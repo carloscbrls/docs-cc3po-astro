@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Instruction Reset Pack — One Voice the Agents Take Orders From (Apex Edition)
 description: The Apex-edition reset pack for a client-side Hermes agent — removing pasted guardrail text, restoring operator direction, and preserving existing workflows
+owner: 'CC3PO Delivery'
+reviewBy: '2027-01-25'
 ---
 
 # Instruction Reset Pack — One Voice the Agents Take Orders From (Apex Edition)

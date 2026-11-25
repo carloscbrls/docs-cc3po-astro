@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Bolt.new Documentation
 description: AI-powered website builder for rapid development
+owner: 'CC3PO Support'
+reviewBy: '2026-07-22'
 ---
 
 # Bolt.new Documentation for CC3PO Agent System

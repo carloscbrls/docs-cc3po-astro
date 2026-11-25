@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: GitHub — Repos, Naming, and the Two Doors
 description: How the Village's GitHub account is organized, and how agents get in without breaking anything
 navOrder: 4
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # GitHub

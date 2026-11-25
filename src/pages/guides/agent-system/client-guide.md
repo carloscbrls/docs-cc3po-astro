@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Getting Started
 description: Set up your AI assistant in 5 minutes — step by step, with screenshots.
 navOrder: 1
+owner: 'CC3PO Support'
+reviewBy: '2027-02-24'
 ---
 
 # Getting Started With Your AI Assistant

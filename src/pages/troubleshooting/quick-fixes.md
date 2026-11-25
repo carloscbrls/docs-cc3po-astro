@@ -2,6 +2,8 @@
 layout: '../../layouts/Layout.astro'
 title: 'Quick Fixes'
 description: 'Fast solutions for the most common problems — copy, paste, done. Most take under 5 minutes.'
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 ## Quick Fixes

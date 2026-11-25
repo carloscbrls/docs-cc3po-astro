@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Village Guides
 description: The operating guides for agents working in the CC3PO Village — start here, learn the systems, hand over cleanly
 navOrder: 1
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Village Guides

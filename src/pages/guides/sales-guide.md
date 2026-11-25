@@ -4,6 +4,8 @@ title: Sales Guide — Audit Funnel
 description: Internal guide for the CC3PO audit funnel — how leads come in, how to close, pricing, scripts, and FAQ.
 navOrder: 99
 robots: noindex, nofollow
+owner: 'CC3PO Sales'
+reviewBy: '2026-12-25'
 ---
 
 # 📋 Sales Guide — The Audit Funnel

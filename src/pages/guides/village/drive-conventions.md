@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Drive Conventions — CURRENT Docs, READMEs, and the Change Log
 description: How the Village's shared documents stay findable, current, and trustworthy
 navOrder: 7
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Drive Conventions

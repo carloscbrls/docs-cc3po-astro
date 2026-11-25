@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Standard Operating Procedures
 description: Proven workflows and processes for business automation
+owner: 'CC3PO Support'
+reviewBy: '2026-07-29'
 ---
 
 # Standard Operating Procedures

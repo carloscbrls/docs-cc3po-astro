@@ -1,5 +1,12 @@
-# CC3PO Web Excellence Handbook
+---
 layout: '../../../layouts/Layout.astro'
+title: Web Excellence Handbook
+description: Best practices for website performance, accessibility, and user experience.
+owner: 'CC3PO Web'
+reviewBy: '2026-07-21'
+---
+
+# CC3PO Web Excellence Handbook
 
 *A living document capturing our learnings, standards, and continuous improvement process for maintaining a consistently excellent web presence.*
 

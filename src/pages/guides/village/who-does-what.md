@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Who Does What — The Village Roster
 description: Every Village agent, their lane, their standing rule, and where their work lives
 navOrder: 3
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Who Does What

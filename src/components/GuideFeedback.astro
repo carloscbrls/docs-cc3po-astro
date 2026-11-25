@@ -1,0 +1,95 @@
+---
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from '../lib/public-config.ts';
+import SupportForm from './SupportForm.astro';
+
+interface Props { guidePath: string; guideTitle: string; locale?: 'en' | 'es'; }
+const { guidePath, guideTitle, locale = 'en' } = Astro.props;
+const uid = `feedback-${Math.random().toString(36).slice(2, 9)}`;
+const es = locale === 'es';
+const t = es ? {
+  heading: '¿Te sirvió esta guía?', yes: 'Sí', no: 'No', prompt: '¿Qué estabas tratando de hacer?',
+  optional: 'Opcional. Esto llega a la cola de guías por mejorar.', submit: 'Enviar comentario',
+  thanks: 'Gracias. Tu respuesta quedó registrada.', noThanks: 'Gracias. Esto entra en la cola de guías por mejorar.',
+  error: 'No pudimos guardar tu respuesta. Inténtalo de nuevo.', sending: 'Guardando…',
+} : {
+  heading: 'Was this helpful?', yes: 'Yes', no: 'No', prompt: 'What were you trying to do?',
+  optional: 'Optional. This goes into the failing-guide queue.', submit: 'Send feedback',
+  thanks: 'Thanks — your vote was recorded.', noThanks: 'Thanks — this guide is now in the improvement queue.',
+  error: 'We could not save that. Please try again.', sending: 'Saving…',
+};
+---
+<section class="guide-feedback" data-guide-feedback data-guide-path={guidePath} data-guide-title={guideTitle} data-locale={locale} aria-labelledby={`${uid}-heading`}>
+  <h2 id={`${uid}-heading`}>{t.heading}</h2>
+  <div class="feedback-actions" data-feedback-actions>
+    <button type="button" class="feedback-button" data-vote="yes">{t.yes}</button>
+    <button type="button" class="feedback-button" data-vote="no">{t.no}</button>
+  </div>
+  <form data-feedback-form hidden>
+    <label for={`${uid}-comment`}>{t.prompt}</label>
+    <textarea id={`${uid}-comment`} name="comment" rows="3" maxlength="1000" aria-describedby={`${uid}-help`}></textarea>
+    <p id={`${uid}-help`} class="feedback-help">{t.optional}</p>
+    <button type="submit" class="feedback-submit">{t.submit}</button>
+  </form>
+  <p class="feedback-status" data-feedback-status role="status" hidden></p>
+  <p class="feedback-error" data-feedback-error role="alert" hidden></p>
+</section>
+
+<SupportForm guidePath={guidePath} guideTitle={guideTitle} locale={locale} />
+
+<script define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, t }}>
+  document.querySelectorAll('[data-guide-feedback]').forEach((box) => {
+    if (box.dataset.wired) return; box.dataset.wired = '1';
+    const status = box.querySelector('[data-feedback-status]');
+    const error = box.querySelector('[data-feedback-error]');
+    const form = box.querySelector('[data-feedback-form]');
+    const actions = box.querySelector('[data-feedback-actions]');
+    let sending = false;
+    const searchTerm = () => { try { return sessionStorage.getItem('cc3po-docs-last-search') || null; } catch { return null; } };
+    async function send(helpful, comment = null) {
+      if (sending) return; sending = true; error.hidden = true;
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/docs_feedback`, {
+          method: 'POST',
+          headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}`, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+          body: JSON.stringify({
+            guide_path: box.dataset.guidePath, guide_title: box.dataset.guideTitle,
+            helpful, comment, search_term: searchTerm(), locale: box.dataset.locale || 'en',
+          }),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        status.textContent = helpful ? t.thanks : t.noThanks;
+        status.hidden = false; form.hidden = true; actions.hidden = true;
+      } catch {
+        error.textContent = t.error; error.hidden = false;
+      } finally { sending = false; }
+    }
+    actions?.querySelectorAll('[data-vote]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (button.dataset.vote === 'yes') void send(true);
+        else { form.hidden = false; form.querySelector('textarea')?.focus(); }
+      });
+    });
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const comment = String(new FormData(form).get('comment') || '').trim() || null;
+      const button = form.querySelector('button[type="submit"]');
+      const original = button.textContent; button.disabled = true; button.textContent = t.sending;
+      void send(false, comment).finally(() => { button.disabled = false; button.textContent = original; });
+    });
+  });
+</script>
+
+<style>
+  .guide-feedback { margin-top: 2.5rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-secondary); }
+  .guide-feedback h2 { margin-top: 0; }
+  .feedback-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+  .feedback-button, .feedback-submit { min-height: 44px; padding: .7rem 1.3rem; border-radius: var(--radius-sm); font-weight: 750; cursor: pointer; }
+  .feedback-button { border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); }
+  .feedback-submit { border: 0; background: var(--accent-strong); color: var(--brand-paper); }
+  .guide-feedback form { display: grid; gap: .65rem; margin-top: 1rem; }
+  .guide-feedback label { font-weight: 700; color: var(--text-primary); }
+  .guide-feedback textarea { width: 100%; padding: .8rem .9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); color: var(--text-primary); font-size: 16px; font-family: inherit; resize: vertical; }
+  .feedback-help { margin: 0; color: var(--text-secondary); font-size: .9rem; }
+  .feedback-status { color: var(--semantic-success); font-weight: 700; }
+  .feedback-error { color: var(--semantic-danger-tint); font-weight: 700; }
+</style>

@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Security & Privacy
 description: How your AI assistant keeps your data and systems secure
 navOrder: 15
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # Security & Privacy

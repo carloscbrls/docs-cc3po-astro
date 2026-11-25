@@ -34,6 +34,8 @@ faq:
     answer: "- 1–2 business days for your AI assistant to be active - 3–5 business days for full onboarding (website, social media, lead generation) - 1 week for your first content calendar and lead pipeline Most clients see their first social media posts within 48 hours of signup."
   - question: "What if something breaks?"
     answer: "Email support@cc3po.com or tell your assistant. Most issues are resolved within hours, not days. For urgent issues (website down, security concern), we respond within 1 hour during business hours. Your assistant monitors your systems 24/7 and often fixes issues before you even notice them."
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # Frequently Asked Questions

@@ -1,6 +1,8 @@
 ---
 layout: '../../../layouts/Layout.astro'
 title: Chatbot Setup Guide
+owner: 'CC3PO Automation'
+reviewBy: '2027-01-25'
 ---
 
 # Chatbot Setup Guide

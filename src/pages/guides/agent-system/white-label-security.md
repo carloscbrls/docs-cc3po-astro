@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: White-Labeling & Security for Client Data
 description: How to securely white-label Supabase and protect client data
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # White-Labeling & Security for Client Data

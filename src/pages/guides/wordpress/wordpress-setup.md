@@ -1,6 +1,8 @@
 ---
 layout: '../../../layouts/Layout.astro'
 title: WordPress Setup Guide
+owner: 'CC3PO Web'
+reviewBy: '2027-01-25'
 ---
 
 # WordPress Setup Guide

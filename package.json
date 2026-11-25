@@ -7,12 +7,14 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist --output-subdir pagefind",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "docs:freshness": "node scripts/check-docs-freshness.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.1.8"
+    "astro": "^6.1.8",
+    "pagefind": "1.6.0"
   }
 }

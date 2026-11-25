@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Social Media Automation
 description: How your AI assistant handles social media posting and engagement
 navOrder: 12
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # Social Media Automation

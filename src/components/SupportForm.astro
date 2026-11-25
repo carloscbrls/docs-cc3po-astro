@@ -1,0 +1,135 @@
+---
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from '../lib/public-config.ts';
+
+interface Props {
+  guidePath: string;
+  guideTitle: string;
+  locale?: 'en' | 'es';
+  heading?: string;
+  intro?: string;
+}
+const {
+  guidePath,
+  guideTitle,
+  locale = 'en',
+  heading = locale === 'es' ? '¿Sigues atascado?' : 'Still stuck?',
+  intro = locale === 'es'
+    ? 'Envía esto y llevaremos el contexto de esta guía y tu última búsqueda. Sin empezar de cero.'
+    : 'Send this and we will carry this guide and your last search with it. No starting from zero.',
+} = Astro.props;
+const uid = `support-${Math.random().toString(36).slice(2, 9)}`;
+const t = locale === 'es' ? {
+  name: 'Nombre', email: 'Correo electrónico', message: '¿Qué estabas tratando de hacer?',
+  send: 'Enviar a soporte', context: 'Contexto que se enviará', guide: 'Guía', search: 'Última búsqueda',
+  none: 'Sin búsqueda reciente', sending: 'Enviando…', ok: 'Recibido. Te responderemos por correo.',
+  error: 'Algo salió mal de nuestro lado. Inténtalo de nuevo en un momento.',
+  emailError: 'Escribe un correo electrónico válido.', required: 'Completa todos los campos.',
+} : {
+  name: 'Name', email: 'Email', message: 'What were you trying to do?',
+  send: 'Send to support', context: 'Context we will send', guide: 'Guide', search: 'Last search',
+  none: 'No recent search', sending: 'Sending…', ok: 'Received. We will reply by email.',
+  error: 'Something went wrong on our end. Please try again in a moment.',
+  emailError: 'Please enter a valid email address.', required: 'Please complete every field.',
+};
+---
+<section class="support-panel" data-support-panel data-guide-path={guidePath} data-guide-title={guideTitle} data-locale={locale} aria-labelledby={`${uid}-heading`}>
+  <h2 id={`${uid}-heading`}>{heading}</h2>
+  <p>{intro}</p>
+  <dl class="support-context" aria-label={t.context}>
+    <div><dt>{t.guide}</dt><dd>{guideTitle}</dd></div>
+    <div><dt>{t.search}</dt><dd data-search-term>{t.none}</dd></div>
+  </dl>
+  <form class="support-form" data-support-form novalidate>
+    <div class="support-grid">
+      <div class="support-field">
+        <label for={`${uid}-name`}>{t.name}</label>
+        <input id={`${uid}-name`} name="name" type="text" autocomplete="name" required maxlength="100" />
+      </div>
+      <div class="support-field">
+        <label for={`${uid}-email`}>{t.email}</label>
+        <input id={`${uid}-email`} name="email" type="email" autocomplete="email" required maxlength="254" />
+      </div>
+    </div>
+    <div class="support-field">
+      <label for={`${uid}-message`}>{t.message}</label>
+      <textarea id={`${uid}-message`} name="message" rows="4" required maxlength="4000"></textarea>
+    </div>
+    <p class="support-error" data-support-error role="alert" hidden></p>
+    <p class="support-ok" data-support-ok role="status" hidden></p>
+    <button type="submit" class="support-submit">{t.send}</button>
+  </form>
+</section>
+
+<script define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY, t }}>
+  document.querySelectorAll('[data-support-panel]').forEach((panel) => {
+    if (panel.dataset.wired) return;
+    panel.dataset.wired = '1';
+    const form = panel.querySelector('[data-support-form]');
+    const error = panel.querySelector('[data-support-error]');
+    const ok = panel.querySelector('[data-support-ok]');
+    const searchOut = panel.querySelector('[data-search-term]');
+    const lastSearch = () => {
+      try { return sessionStorage.getItem('cc3po-docs-last-search') || ''; } catch { return ''; }
+    };
+    const refreshContext = () => { if (searchOut) searchOut.textContent = lastSearch() || t.none; };
+    refreshContext();
+    window.addEventListener('cc3po-docs-search', refreshContext);
+
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      error.hidden = true; ok.hidden = true;
+      const data = new FormData(form);
+      const name = String(data.get('name') || '').trim();
+      const email = String(data.get('email') || '').trim();
+      const message = String(data.get('message') || '').trim();
+      if (!name || !email || !message) {
+        error.textContent = t.required; error.hidden = false; return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        error.textContent = t.emailError; error.hidden = false; form.querySelector('[name="email"]')?.focus(); return;
+      }
+      const button = form.querySelector('button[type="submit"]');
+      const original = button.textContent;
+      button.disabled = true; button.textContent = t.sending;
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/docs_support_requests`, {
+          method: 'POST',
+          headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}`, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+          body: JSON.stringify({
+            name, email, message,
+            guide_path: panel.dataset.guidePath || null,
+            guide_title: panel.dataset.guideTitle || null,
+            search_term: lastSearch() || null,
+            locale: panel.dataset.locale || 'en',
+          }),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        ok.textContent = t.ok; ok.hidden = false; form.reset(); refreshContext();
+      } catch {
+        error.textContent = t.error; error.hidden = false;
+      } finally {
+        button.disabled = false; button.textContent = original;
+      }
+    });
+  });
+</script>
+
+<style>
+  .support-panel { margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-secondary); }
+  .support-panel h2 { margin-top: 0; }
+  .support-context { display: grid; gap: .5rem; margin: 1rem 0; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); }
+  .support-context div { display: flex; gap: .75rem; flex-wrap: wrap; }
+  .support-context dt { font-weight: 700; color: var(--text-primary); }
+  .support-context dd { margin: 0; color: var(--text-secondary); overflow-wrap: anywhere; }
+  .support-form { display: grid; gap: 1rem; }
+  .support-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .support-field { display: grid; gap: .4rem; }
+  .support-field label { font-weight: 650; color: var(--text-primary); }
+  .support-field input, .support-field textarea { width: 100%; min-height: 44px; padding: .75rem .9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-primary); color: var(--text-primary); font-size: 16px; font-family: inherit; }
+  .support-field textarea { resize: vertical; }
+  .support-submit { min-height: 44px; padding: .75rem 1.25rem; border: 0; border-radius: var(--radius-sm); background: var(--accent-strong); color: var(--brand-paper); font-weight: 750; cursor: pointer; }
+  .support-submit:disabled { opacity: .65; cursor: wait; }
+  .support-error { color: var(--semantic-danger-tint); font-weight: 650; }
+  .support-ok { color: var(--semantic-success); font-weight: 650; }
+  @media (max-width: 700px) { .support-grid { grid-template-columns: 1fr; } .support-panel { padding: 1.25rem; } }
+</style>

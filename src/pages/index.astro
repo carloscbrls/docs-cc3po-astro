@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SupportForm from '../components/SupportForm.astro';
 ---
 
 <Layout title="Knowledge Base">
@@ -154,28 +155,7 @@ import Layout from '../layouts/Layout.astro';
         <p>Rather not do it yourself? <a href="https://cc3po.com/get-started">We can do this for you →</a></p>
       </div>
     </div>
-    <form class="help-cta-form" action="https://formspree.io/f/xbdwggel" method="POST">
-      <input type="hidden" name="_subject" value="CC3PO Docs — New Support Request" />
-      <input type="hidden" name="source" value="docs.cc3po.com" />
-      <div class="form-row">
-        <div class="form-group">
-          <label for="help-name">Name</label>
-          <input type="text" id="help-name" name="name" placeholder="Your name" required />
-        </div>
-        <div class="form-group">
-          <label for="help-email">Email</label>
-          <input type="email" id="help-email" name="email" placeholder="you@company.com" required />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="help-message">What do you need help with?</label>
-        <textarea id="help-message" name="message" rows="3" placeholder="Tell us what you're looking for..." required></textarea>
-      </div>
-      <button type="submit" class="help-cta-button">
-        Send Message
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-      </button>
-    </form>
+    <SupportForm guidePath="/" guideTitle="Knowledge Base home" heading="Can't find what you need?" intro="Send this and we will carry your last search with it. No starting from zero." />
   </div>
 
   <footer class="footer">

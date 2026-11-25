@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Cloudflare & DNS — Zones, Proxy Posture, and Safe Changes
 description: How DNS is held, the order to make decisions in, and how to verify a record before removing anything
 navOrder: 8
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Cloudflare & DNS

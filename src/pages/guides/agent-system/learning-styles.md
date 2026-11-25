@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Learning Styles & Training Methods
 description: How to train AI agents and onboard clients using proven learning methodologies
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # Learning Styles & Training Methods

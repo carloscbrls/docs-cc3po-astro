@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Sites & Forms — How the Websites and Their Forms Work
 description: One repo per site, the Netlify deploy pattern, and the one form pipeline every form uses
 navOrder: 6
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Sites & Forms

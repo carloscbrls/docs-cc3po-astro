@@ -55,6 +55,8 @@ howto:
       text: "After choosing your plan, you'll be directed to a Stripe checkout page. Enter your payment details and you're done. Stripe handles all payment processing — your card information never touches our servers. We accept: - All major credit and debit cards (Visa, Mastercard, American Express, Discover) - ACH bank transfers (US businesses) [SCREENSHOT: Stripe checkout page showing payment form]"
     - name: "We Start Monitoring"
       text: "Once your payment is confirmed, your site is enrolled in monitoring immediately. Your first full report arrives within the first monitoring cycle (monthly, weekly, or daily depending on your plan). ---"
+owner: 'CC3PO Compliance'
+reviewBy: '2026-12-25'
 ---
 
 # CC3PO Compliance Plans — Complete Guide

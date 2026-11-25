@@ -1,0 +1,114 @@
+---
+import { docByPath, relatedDocs } from '../lib/docs-catalog.ts';
+
+interface Props {
+  path: string;
+  title: string;
+  locale?: 'en' | 'es';
+  owner?: string;
+  reviewBy?: string;
+  updated?: string;
+  alternateHref?: string;
+  alternateLabel?: string;
+}
+const { path, title, locale = 'en', owner, reviewBy, updated, alternateHref, alternateLabel } = Astro.props;
+const entry = docByPath(path);
+const related = entry ? relatedDocs(entry) : [];
+const es = locale === 'es';
+const labels = es ? {
+  onThisPage: 'En esta página', related: 'Guías relacionadas', freshness: 'Actualidad de la guía',
+  owner: 'Responsable', reviewBy: 'Revisar antes de', updated: 'Actualizado',
+} : {
+  onThisPage: 'On this page', related: 'Related guides', freshness: 'Guide freshness',
+  owner: 'Owner', reviewBy: 'Review by', updated: 'Updated',
+};
+---
+<aside class="guide-rail" data-guide-rail aria-label={es ? 'Herramientas de la guía' : 'Guide tools'}>
+  <nav class="rail-card toc-card" data-toc-card aria-labelledby="guide-toc-heading" hidden>
+    <h2 id="guide-toc-heading">{labels.onThisPage}</h2>
+    <ol data-toc-list></ol>
+  </nav>
+
+  {(owner || reviewBy || updated) && (
+    <section class="rail-card" aria-labelledby="guide-freshness-heading">
+      <h2 id="guide-freshness-heading">{labels.freshness}</h2>
+      <dl class="freshness-list">
+        {owner && <div><dt>{labels.owner}</dt><dd>{owner}</dd></div>}
+        {reviewBy && <div><dt>{labels.reviewBy}</dt><dd>{reviewBy}</dd></div>}
+        {updated && <div><dt>{labels.updated}</dt><dd>{updated}</dd></div>}
+      </dl>
+    </section>
+  )}
+
+  {alternateHref && alternateLabel && (
+    <a class="rail-language" href={alternateHref} hreflang={locale === 'es' ? 'en' : 'es'}>{alternateLabel}</a>
+  )}
+
+  {related.length > 0 && (
+    <section class="rail-card" aria-labelledby="related-guides-heading">
+      <h2 id="related-guides-heading">{labels.related}</h2>
+      <ul class="related-list">
+        {related.map((doc) => (
+          <li><a href={doc.href}>{doc.title}</a><span>{doc.section}</span></li>
+        ))}
+      </ul>
+    </section>
+  )}
+</aside>
+
+<script>
+  const rail = document.querySelector('[data-guide-rail]');
+  const body = document.querySelector('[data-guide-body]');
+  const tocCard = rail?.querySelector('[data-toc-card]');
+  const tocList = rail?.querySelector('[data-toc-list]');
+  const progress = document.querySelector('[data-reading-progress]');
+  if (rail && body && tocCard && tocList) {
+    const headings = [...body.querySelectorAll('h2, h3')].filter((heading) => heading.textContent?.trim());
+    if (headings.length >= 3) {
+      const used = new Set();
+      headings.forEach((heading) => {
+        const slug = heading.textContent.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'section';
+        let id = heading.id || slug;
+        let n = 2;
+        while (used.has(id)) id = `${slug}-${n++}`;
+        heading.id = id; used.add(id);
+        const item = document.createElement('li');
+        if (heading.tagName === 'H3') item.className = 'toc-sub';
+        const link = document.createElement('a');
+        link.href = `#${id}`; link.textContent = heading.textContent.trim();
+        item.appendChild(link); tocList.appendChild(item);
+      });
+      tocCard.hidden = false;
+    }
+    const updateProgress = () => {
+      if (!progress) return;
+      const rect = body.getBoundingClientRect();
+      const total = Math.max(body.scrollHeight - window.innerHeight, 1);
+      const read = Math.min(Math.max(-rect.top + 120, 0), total);
+      progress.style.transform = `scaleX(${read / total})`;
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+  }
+</script>
+
+<style>
+  .guide-rail { display: grid; gap: 1rem; align-content: start; }
+  .rail-card { padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-secondary); }
+  .rail-card h2 { font-size: .78rem; text-transform: uppercase; letter-spacing: .09em; color: var(--accent); margin: 0 0 .75rem; border: 0; padding: 0; }
+  .rail-card ol, .related-list { margin: 0; padding: 0; list-style: none; }
+  .rail-card ol { display: grid; gap: .25rem; }
+  .rail-card ol a { display: block; padding: .45rem .5rem; border-radius: var(--radius-xs); color: var(--text-secondary); text-decoration: none; border: 0; line-height: 1.35; }
+  .rail-card ol a:hover { color: var(--text-primary); background: var(--bg-tertiary); }
+  .rail-card .toc-sub a { padding-left: 1.25rem; font-size: .92em; }
+  .freshness-list { display: grid; gap: .65rem; margin: 0; }
+  .freshness-list dt { font-size: .78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; }
+  .freshness-list dd { margin: .1rem 0 0; color: var(--text-primary); }
+  .rail-language { display: block; padding: .8rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-tertiary); color: var(--text-primary); font-weight: 700; text-decoration: none; }
+  .related-list { display: grid; gap: .8rem; }
+  .related-list a { color: var(--text-primary); font-weight: 650; text-decoration: none; border: 0; line-height: 1.35; }
+  .related-list a:hover { color: var(--accent); }
+  .related-list span { display: block; margin-top: .15rem; color: var(--text-muted); font-size: .8rem; }
+  @media (min-width: 1101px) { .guide-rail { position: sticky; top: 76px; max-height: calc(100vh - 92px); overflow: auto; padding-right: .15rem; } }
+</style>

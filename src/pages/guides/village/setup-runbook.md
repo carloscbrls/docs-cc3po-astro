@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Setup Runbook — How Anything Gets Set Up
 description: The one process for setting up a new agent, a new site, or a new customer or partner pack in the Village
 navOrder: 11
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Setup Runbook

@@ -27,6 +27,8 @@ faq:
     answer: "Yes. We use industry-standard encryption, don't store passwords (we use magic link authentication), and never share your data with third parties. See the Security & Privacy section above for details."
   - question: "What does \"Living Compliance Score\" mean?"
     answer: "It means your score is continuously updated — not a one-time check. Every time we scan your site, your score reflects your current compliance posture. It goes up as you fix issues and down if new violations appear. ---"
+owner: 'CC3PO Compliance'
+reviewBy: '2026-12-25'
 ---
 
 # CC3PO Comply Dashboard Tutorial

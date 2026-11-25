@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: GitHub Integration for the Village
 description: Tools, pricing, and setup guide for GitHub automation
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # GitHub Integration for the Village

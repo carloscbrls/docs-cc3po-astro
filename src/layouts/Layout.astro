@@ -1,10 +1,13 @@
 ---
 import CookieBanner from '../components/CookieBanner.astro';
 import SearchModal from '../components/SearchModal.astro';
+import GuideRail from '../components/GuideRail.astro';
+import GuideFeedback from '../components/GuideFeedback.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  robots?: string;
   faqSchema?: Array<{ question: string; answer: string }>;
 }
 
@@ -13,7 +16,22 @@ const frontmatter = Astro.props.frontmatter || {};
 const {
   title = frontmatter.title || 'Docs',
   description = frontmatter.description || "CC3PO Knowledge Base - Technical guides, SOPs, and best practices for AI automation, WordPress, and business optimization",
+  robots = frontmatter.robots || 'index, follow',
 } = Astro.props;
+const locale = frontmatter.lang === 'es' || Astro.url.pathname.startsWith('/es/') ? 'es' : 'en';
+const isGuide = /^\/(es\/)?(guides|troubleshooting)(\/|$)/.test(Astro.url.pathname);
+const guideOwner = typeof frontmatter.owner === 'string' ? frontmatter.owner : undefined;
+const guideReviewBy = typeof frontmatter.reviewBy === 'string' ? frontmatter.reviewBy : undefined;
+const guideUpdated = typeof frontmatter.updated === 'string' ? frontmatter.updated : undefined;
+const spanishPairs: Record<string, string> = {
+  '/guides/agent-system/client-guide': '/es/guides/agent-system/client-guide',
+  '/guides/agent-system/faq': '/es/guides/agent-system/faq',
+};
+const normalizedPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const alternateHref = locale === 'es'
+  ? (typeof frontmatter.translationOf === 'string' ? frontmatter.translationOf : undefined)
+  : spanishPairs[normalizedPath];
+const alternateLabel = locale === 'es' ? 'Read in English' : 'Leer en español';
 // FAQ / HowTo structured data: from a page prop, or from markdown frontmatter
 // (`faq:` list of {question, answer}; `howto:` {name, steps: [{name, text}]}).
 const faqSchema = Astro.props.faqSchema || frontmatter.faq;
@@ -23,15 +41,16 @@ const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={new URL(currentPath, 'https://docs.cc3po.com')} />
+    {alternateHref && <link rel="alternate" hreflang={locale === 'es' ? 'en' : 'es'} href={new URL(alternateHref, 'https://docs.cc3po.com')} />}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title + ' | CC3PO Docs'} />
     <meta property="og:description" content={description} />
@@ -420,6 +439,17 @@ const currentPath = Astro.url.pathname;
           </div>
 
           <div class="nav-section">
+            <div class="nav-section-title">Technical</div>
+            <a href="/technical/" class:list={["nav-link", { active: currentPath === "/technical/" || currentPath === "/technical" }]}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+              Technical Docs — Reserved
+            </a>
+          </div>
+
+          <div class="nav-section">
             <div class="nav-section-title">Troubleshooting</div>
             <a href="/troubleshooting/common-issues" class:list={["nav-link", { active: currentPath === "/troubleshooting/common-issues" }]}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -439,8 +469,30 @@ const currentPath = Astro.url.pathname;
         </nav>
       </aside>
       
-      <main class="main-content" id="main-content" role="main">
-        <slot />
+      <main class:list={["main-content", { "guide-main": isGuide }]} id="main-content" role="main" data-pagefind-body>
+        {isGuide && <div class="reading-progress" aria-hidden="true"><span data-reading-progress></span></div>}
+        {isGuide ? (
+          <>
+            <div class="guide-layout">
+              <div class="guide-body" data-guide-body>
+                <slot />
+              </div>
+              <GuideRail
+                path={currentPath}
+                title={title}
+                locale={locale}
+                owner={guideOwner}
+                reviewBy={guideReviewBy}
+                updated={guideUpdated}
+                alternateHref={alternateHref}
+                alternateLabel={alternateLabel}
+              />
+            </div>
+            <GuideFeedback guidePath={currentPath} guideTitle={title} locale={locale} />
+          </>
+        ) : (
+          <slot />
+        )}
       </main>
     </div>
 
@@ -554,6 +606,16 @@ const currentPath = Astro.url.pathname;
       // Keyboard close
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeSidebar();
+      });
+
+      // Markdown task-list checkboxes render as bare disabled inputs with
+      // no label (axe `label`, critical). Give each its item text as an
+      // aria-label (Docs Shift Change axe gate, 2026-11-25).
+      document.querySelectorAll('.main-content .task-list-item > input[type="checkbox"]').forEach(cb => {
+        if (!cb.getAttribute('aria-label')) {
+          const text = cb.parentElement?.textContent?.trim().slice(0, 80) || 'Task';
+          cb.setAttribute('aria-label', `Checklist item: ${text}`);
+        }
       });
 
       // Wrap tables in scrollable container for mobile

@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Netlify Organization Pack — Every Site Mapped to Its Domain
 description: The organization pack for a client-side agent working on the client's own Netlify account — site inventory, domain map, and a client decision list
+owner: 'CC3PO Delivery'
+reviewBy: '2027-01-25'
 ---
 
 # Netlify Organization Pack — Every Site Mapped to Its Domain

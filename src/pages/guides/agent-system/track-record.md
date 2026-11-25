@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Our Track Record
 description: Proven history of building AI-powered automation systems
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # Our Track Record

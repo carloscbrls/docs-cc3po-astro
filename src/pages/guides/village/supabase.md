@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Supabase — The Databases
 description: The two projects, the leads flow, security posture, and the rules for changing anything
 navOrder: 5
+owner: 'CC3PO Village'
+reviewBy: '2027-01-25'
 ---
 
 # Supabase

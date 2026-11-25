@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Technical Documentation — Reserved" description="Reserved space for future CC3PO template and product documentation." robots="noindex, nofollow">
+  <p class="technical-eyebrow">Reserved surface</p>
+  <h1>Technical documentation</h1>
+  <p class="technical-lede">This section is reserved for documentation that ships with CC3PO templates and products. It will open when the first template ships.</p>
+
+  <div class="technical-grid" aria-label="Reserved documentation areas">
+    <section>
+      <h2>Templates</h2>
+      <p>Setup, configuration, and handover docs for a shipped template.</p>
+      <strong>Reserved — not yet published</strong>
+    </section>
+    <section>
+      <h2>Products</h2>
+      <p>Operating docs for a released CC3PO product surface.</p>
+      <strong>Reserved — not yet published</strong>
+    </section>
+    <section>
+      <h2>Integrations</h2>
+      <p>Public integration references, added only when a public integration exists to document.</p>
+      <strong>Reserved — not yet published</strong>
+    </section>
+  </div>
+
+  <p>Internal Village documentation stays in its internal record. This public scaffold does not mirror it.</p>
+</Layout>
+
+<style>
+  .technical-eyebrow { color: var(--accent); font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+  .technical-lede { font-size: 1.15rem; max-width: 44rem; }
+  .technical-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 2rem 0; }
+  .technical-grid section { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-secondary); }
+  .technical-grid h2 { margin-top: 0; }
+  .technical-grid strong { color: var(--accent); }
+  @media (max-width: 800px) { .technical-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,6 +1,8 @@
 ---
 layout: '../../../layouts/Layout.astro'
 title: WordPress Security Best Practices
+owner: 'CC3PO Web'
+reviewBy: '2027-01-25'
 ---
 
 # WordPress Security Best Practices

@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Hermes Setup Pack — Local Workspace & Timestamp Discipline
 description: The operational setup pack for a client-side Hermes agent — local folder structure, CURRENT-doc discipline, a timestamped change log, and verification gates
+owner: 'CC3PO Delivery'
+reviewBy: '2027-01-25'
 ---
 
 # Hermes Setup Pack — Local Workspace & Timestamp Discipline

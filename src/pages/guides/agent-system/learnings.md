@@ -2,6 +2,8 @@
 layout: '../../../layouts/Layout.astro'
 title: Key Learnings
 description: Important decisions and insights from running CC3PO
+owner: 'CC3PO Support'
+reviewBy: '2026-07-29'
 ---
 
 # Key Learnings

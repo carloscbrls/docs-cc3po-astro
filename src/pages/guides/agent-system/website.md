@@ -3,6 +3,8 @@ layout: '../../../layouts/Layout.astro'
 title: Your Website
 description: How your AI assistant manages and monitors your website — explained in plain English
 navOrder: 13
+owner: 'CC3PO Support'
+reviewBy: '2026-12-25'
 ---
 
 # Your Website
